@@ -1,0 +1,14 @@
+# Write your default config options here!
+
+# Use ALSA as the main audio out
+ao=alsa
+
+# Use vaapi for hardware accelerated processing
+vo=vaapi:gl
+
+[gnome-mplayer]
+msglevel=all=5
+vo=vaapi:gl
+
+# Remove lirc. I don't use a damned remote anyway!
+nolirc=yes

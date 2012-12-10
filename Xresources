@@ -1,0 +1,122 @@
+XTerm*background:    black
+XTerm*foreground:    white
+XTerm*highlightcolor: white
+xterm*utf8:		2
+xterm*dynamicColors:	true
+
+!xterm*FontFace = Roboto
+!xterm*FontSize = 9
+
+!term screen-256color
+
+!URxvt.depth: 32
+!URxvt.background: rgba:1111/1111/1111/dddd
+
+!URxvt.transparent: true
+! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
+!URxvt.shading: 50
+!URxvt.scrollBar: off
+
+!URxvt*termName:screen-256color
+
+!URxvt*foreground: #EAEAEA
+
+!black
+urxvt.color0: #353535
+urxvt.color8: #666666
+
+!red
+urxvt.color1: #D81860
+urxvt.color9: #F00060
+
+!green
+urxvt.color2: #B7CE42
+urxvt.color10: #BDE077
+
+!brown/yellow
+urxvt.color3: #FEA63C
+urxvt.color11: #FFE863
+
+!blue
+urxvt.color4: #6F99B4
+urxvt.color12: #7C96B0
+
+!magenta
+urxvt.color5: #8B7B8B
+urxvt.color13: #D8BFD8
+
+!cyan
+urxvt.color6: #A7A15E
+urxvt.color14: #F0E68C
+
+!white
+urxvt.color7: #DDDDDD
+urxvt.color15: #FFFFFF
+
+urxvt.background: #212021
+urxvt.foreground: #DDDDDD
+
+!urxvt.transparent: True
+!urxvt.inheritPixmap: True
+!hexurxv.internalBorder: 6
+
+!! === Man Page Colors ========================================================
+
+urxvt.colorIT: #87af5f
+urxvt.colorBD: #d7d7d7
+urxvt.colorUL: #87afd7
+
+!! === Scrolling options ======================================================
+
+urxvt.buffered: true
+urxvt.jumpScroll: false
+urxvt.saveLines: 4000
+urxvt.scrollBar: false
+urxvt.scrollTtyKeypress: true
+urxvt.scrollTtyOutput: false
+urxvt.scrollWithBuffer: false
+urxvt.scrollstyle: plain
+urxvt.secondaryScroll: false
+
+! === Font options ===========================================================
+
+urxvt.font: xft:Terminus:pixelsize=13
+urxvt.imFont: xft:Terminus:pixelsize=13
+urxvt.boldFont: xft:Terminus:pixelsize=13
+urxvt.italicFont: xft:Terminus:pixelsize=13
+urxvt.boldItalicFont: xft:Terminus:pixelsize=13
+!urxvt.font: xft:Terminus\ for\ Powerline:pixelsize=13
+
+!urxvt.font: xft:Monaco for Powerline:regular:size=8
+!urxvt.imFont: xft:Monaco for Powerline:regular:size=8
+!urxvt.boldFont: xft:Monaco for Powerline:bold:size=8
+!urxvt.italicFont xft:Monaco for Powerline:italic:size8
+!urxvt.boldItalicFont: xft:Monaco for Powerline:bold:italic:size=8
+
+!urxvt.font: xft:Monospace:pixelsize=11
+urxvt.xftAntialias: true
+urxvt.skipBuiltinGlyphs: true
+xft.antialias: true
+xft.dpi: 96
+!xft.rgba: rgb
+!urxvt.depth: 32
+
+! === Url opening ============================================================
+
+urxvt.perl-ext: default,matcher
+urxvt.perl-ext-common: vtwheel
+urxvt.cutchars: `"()'*<>[]{|}"
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+urxvt.matcher.button: 1
+urxvt.urlLauncher: /usr/bin/firefox
+
+! === Misc ===================================================================
+
+urxvt.cursorBlink: true
+urxvt.loginShell: true
+urxvt.mapAlert: true
+urxvt.pointerBlank: true
+urxvt.resource: value
+urxvt.urgentOnBell: true
+!urxvt.utf8: 2
+!urxvt.inputMethod: scim
