@@ -8,6 +8,7 @@
 source /etc/profile
 export EDITOR=vim
 export MPD_HOST=ArchieMPD@localhost
+export SDL_AUDIODRIVER=alsa
 
 PS1='[\u@\h \W]\$ '
 
