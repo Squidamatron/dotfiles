@@ -25,6 +25,9 @@ alias cputemp='sensors coretemp-isa-0000'
 # get a quick view of GPU clocks/load
 alias atiload='aticonfig --od-getclock'
 
+# No program should use capitals! Because I'll never remember it.
+alias amdoverdrivectrl='AMDOverdriveCtrl'
+
 # creat a video of the current screen
 alias screencap="ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /home/jon/Videos/recorded/out.mpg"
 
