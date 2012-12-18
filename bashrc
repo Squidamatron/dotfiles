@@ -68,8 +68,10 @@ echo "'$1' is not a valid file!"
 fi
 }
 
-# Download youtube videos! Python2.x is needed, but 3 is used, this fixes that!
-#alias youtube-dl='python2 /usr/local/bin/youtube-dl'
+# Dictionary access right from the cli
+function define {
+	curl dict://dict.org/d:"$1"
+}
 
 # Correct the mouse after steam has run
 alias fixmouse='xsetroot -cursor_name left_ptr'
