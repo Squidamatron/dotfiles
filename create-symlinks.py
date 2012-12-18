@@ -7,7 +7,7 @@ from sys import exit
 from subprocess import *
 
 homedir = environ["HOME"]
-dotfiles = join(homedir, "Coding/git/test")
+dotfiles = join(homedir, "Coding/git/dotfiles")
 
 ff_profile = Popen(["-c", "awk -F\= '/Path/ {print $2}' ~/.mozilla/firefox/profiles.ini"],
 		stdin=PIPE, stdout=PIPE, shell=True)
