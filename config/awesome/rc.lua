@@ -423,6 +423,13 @@ awful.rules.rules = {
     -- Firefox Downloads window always floating
     { rule = { class = "Download" },
       properties = { floating = true } },
+    -- float rule for viewnior
+    { rule = { class = "Viewnior"},
+      properties = { floating = true } },
+    -- float rule for feh
+    { rule = { class = "feh"},
+      properties = { floating = true } },
+
     -- Steam float rule, note the captal 'S'
     { rule = { class = "Steam"},
       properties = { floating = true,
