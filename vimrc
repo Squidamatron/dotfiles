@@ -29,6 +29,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 "Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'tpope/vim-surround'
+Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on
 
