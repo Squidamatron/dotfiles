@@ -10,7 +10,30 @@ export EDITOR=vim
 export MPD_HOST=ArchieMPD@localhost
 export SDL_AUDIODRIVER=alsa
 
-PS1='[\u@\h \W]\$ '
+# git-prompt variables
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWDIRTYSTATE="auto"
+export GIT_PS1_SHOWSTASHSTATE="auto"
+export GIT_PS1_SHOWUNTRACKEDFILES="auto"
+
+#PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+source ~/.git-prompt.sh
+
+
+red="\[\e[1;37m\]"
+yellow="\[\e[1;33m\]"
+
+if [ `id -u` -eq "0" ]; then
+		root="${yellow}"
+	else
+		root="${red}"
+fi
+
+#PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└──╼ \[\e[0m\]'
+PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└──▬ \[\e[0m\]'
+PS2="╾──╼ "
 
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
@@ -73,6 +96,9 @@ function define {
 	curl dict://dict.org/d:"$1"
 }
 
+function ytstream {
+	mplayer -cache 1000000 -cache-min 5 -cookies -cookies-file /tmp/cookie.txt $(youtube-dl -g --cookies /tmp/cookie.txt "$1")
+}
 # Correct the mouse after steam has run
 alias fixmouse='xsetroot -cursor_name left_ptr'
 
