@@ -99,10 +99,9 @@ function define {
 function ytstream {
 	mplayer -cache 1000000 -cache-min 5 -cookies -cookies-file /tmp/cookie.txt $(youtube-dl -g --cookies /tmp/cookie.txt "$1")
 }
-# Correct the mouse after steam has run
-alias fixmouse='xsetroot -cursor_name left_ptr'
 
-#alias implication='\033[32m >implying implications'
+# autojump addition
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
 #if [ -f "$HOME/.bash_ps1" ]; then
 

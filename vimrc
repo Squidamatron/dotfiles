@@ -27,14 +27,16 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on
 
+" Powerline config
 set laststatus=2
-" let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'compatible'
 
 
 " allow backspacing over everything in insert mode
