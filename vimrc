@@ -31,6 +31,8 @@ Bundle 'Lokaltog/vim-powerline'
 "Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-rails'
+"Bundle 'Bogdanp/browser-connect.vim'
 
 filetype plugin indent on
 
