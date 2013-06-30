@@ -24,7 +24,8 @@ themedir      = themes .. themename
 --wallpaper1    = themedir .. "/background.jpg"
 --wallpaper1    = "/home/jon/Pictures/Backgrounds/ninjask.jpg"
 --wallpaper1    = "/home/jon/Pictures/Backgrounds/CarmelaineAntonio/1680x1050_rock_bird.jpeg"
-wallpaper1    = "/home/jon/Pictures/Backgrounds/AdventureTime.jpg"
+--wallpaper1    = "/home/jon/Pictures/Backgrounds/AdventureTime.jpg"
+wallpaper1    = "/home/jon/Pictures/Backgrounds/flowermacro.png"
 --wallpaper2    = themedir .. "/background.png"
 --wallpaper3    = sharedthemes .. "/zenburn/zenburn-background.png"
 --wallpaper4    = sharedthemes .. "/default/background.png"
@@ -48,7 +49,10 @@ end
 --}}}
 
 --theme.font          = "clean 8"
-theme.font          = "Roboto 8"
+--theme.font          = "Roboto 8"
+theme.font          = "Terminus 8"
+--theme.bigfont       = "Terminus 10"
+--theme.xfont         = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
 theme.bg_normal     = "#212021"
 --theme.bg_normal     = "#22222200"
 --theme.bg_focus      = "#908884"
