@@ -33,6 +33,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-rails'
 "Bundle 'Bogdanp/browser-connect.vim'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
