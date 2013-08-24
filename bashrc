@@ -74,6 +74,11 @@ function listusers {
 	awk -F":" '{ print "username: " $1 "\t\tuid:" $3 }' /etc/passwd
 }
 
+# see where a shortened url points
+function shorty {
+	curl -s -D - -o /dev/null $1 | grep -i ^location
+}
+
 # easy extract
 extract () {
   if [ -f "$1" ] ; then
