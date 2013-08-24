@@ -26,7 +26,8 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+"Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'tpope/vim-surround'
@@ -37,10 +38,20 @@ Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
-" Powerline config
+" vim-airline config
 set laststatus=2
-let g:Powerline_symbols = 'compatible'
+let g:airline_powerline_fonts=0
+let g:airline_theme='powerlineish'
+let g:airline_enable_syntastic=1
 
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_linecolumn_prefix = 'LN'
+let g:airline_paste_symbol = 'Þ'
+let g:airline_whitespace_symbol = 'Ξ'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
