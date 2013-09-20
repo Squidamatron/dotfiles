@@ -96,19 +96,24 @@ urxvt.boldItalicFont: xft:Terminus:pixelsize=13
 !urxvt.font: xft:Monospace:pixelsize=11
 urxvt.xftAntialias: true
 urxvt.skipBuiltinGlyphs: true
-xft.antialias: true
+!xft.antialias: true
+xft.antialias: 1 
 xft.dpi: 96
-!xft.rgba: rgb
+xft.rgba: rgb
+xft.autohint: 0
+xft.lcdfilter: lcddefault
+xft.hintstyle: hintfull
+xft.hinting: 1
 !urxvt.depth: 32
 
 ! === Url opening ============================================================
 
-urxvt.perl-ext: default,matcher
-urxvt.perl-ext-common: vtwheel
-urxvt.cutchars: `"()'*<>[]{|}"
-urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+urxvt.perl-ext-common: default,matcher,vtwheel
+!URxvt.perl-ext-common: vtwheel
+!urxvt.cutchars: `"()'*<>[]{|}"
+!urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+urxvt.url-launcher: /usr/bin/firefox
 urxvt.matcher.button: 1
-urxvt.urlLauncher: /usr/bin/firefox
 
 ! === Misc ===================================================================
 
