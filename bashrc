@@ -9,7 +9,7 @@ source /etc/profile
 export EDITOR=vim
 export MPD_HOST=ArchieMPD@localhost
 export SDL_AUDIODRIVER=alsa
-export PATH=$PATH:/opt/android-sdk/extras/
+export PATH=$PATH:/opt/android-sdk/extras/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 
 # git-prompt variables
 export GIT_PS1_SHOWUPSTREAM="auto"
