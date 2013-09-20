@@ -27,11 +27,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "Bundle 'https://github.com/tpope/vim-surround'
-Bundle 'tpope/emmet-vim'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-rails'
 "Bundle 'Bogdanp/browser-connect.vim'
 Bundle 'scrooloose/syntastic'
