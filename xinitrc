@@ -1,23 +1,11 @@
-#numlockx &
-
-
-#devmon -s --exec-ondrive "thunar %d" --exec-on-disc "thunar %d" &
+# Start thunar as a daemon
 thunar --daemon &
 
+# Colors and whatnot
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# WM of choice
+exec awesome
 
-#DEFAULT_SESSION=ck-launch-session awesome
-
-#case $1 in
-#awesome)
-#	exec ck-launch-session awesome
-	exec awesome
-#	;;
-#openbox)
-#	exec openbox-session
-#	;;
-#*)
-#	exec $DEFAULT_SESSION
-#	;;
-#esac
+# Little script to see what my NIC's are doing
+nic_mail
