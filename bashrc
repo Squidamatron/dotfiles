@@ -69,6 +69,11 @@ function android-connect {
 	go-mtpfs /home/jon/.android_mount/ &
 }
 
+# search man page for only the option you list
+function manopt {
+	man $1 | sed 's/.\xo8//g' | sed -n "/^\s\+-\+$2\b/,/^\s*$/p" | sed '$d;';
+}
+
 # view all users on the current system with ease
 function listusers {
 	awk -F":" '{ print "username: " $1 "\t\tuid:" $3 }' /etc/passwd
