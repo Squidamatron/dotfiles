@@ -71,7 +71,7 @@ function android-connect {
 
 # search man page for only the option you list
 function manopt {
-	man $1 | sed 's/.\xo8//g' | sed -n "/^\s\+-\+$2\b/,/^\s*$/p" | sed '$d;';
+	man $1 | sed 's/.\x08//g' | sed -n "/^\s\+-\+$2\b/,/^\s*$/p" | sed '$d;';
 }
 
 # view all users on the current system with ease
