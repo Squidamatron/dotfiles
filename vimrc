@@ -32,6 +32,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-rails'
 "Bundle 'Bogdanp/browser-connect.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 
@@ -49,6 +50,10 @@ let g:airline_linecolumn_prefix = '¶ '
 let g:airline_linecolumn_prefix = 'LN'
 let g:airline_paste_symbol = 'Þ'
 let g:airline_whitespace_symbol = 'Ξ'
+
+"NERDTree config
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
