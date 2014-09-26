@@ -22,80 +22,113 @@ xterm*dynamicColors:	true
 !URxvt*foreground: #EAEAEA
 
 !black
-urxvt.color0: #353535
-urxvt.color8: #666666
+!URxvt.color0: #353535
+!URxvt.color8: #666666
 
 !red
-urxvt.color1: #D81860
-urxvt.color9: #F00060
+!URxvt.color1: #D81860
+!URxvt.color9: #F00060
 
 !green
-urxvt.color2: #B7CE42
-urxvt.color10: #BDE077
+!URxvt.color2: #B7CE42
+!URxvt.color10: #BDE077
 
 !brown/yellow
-urxvt.color3: #FEA63C
-urxvt.color11: #FFE863
+!URxvt.color3: #FEA63C
+!URxvt.color11: #FFE863
 
 !blue
-urxvt.color4: #6F99B4
-urxvt.color12: #7C96B0
+!URxvt.color4: #6F99B4
+!URxvt.color12: #7C96B0
 
 !magenta
-urxvt.color5: #8B7B8B
-urxvt.color13: #D8BFD8
+!URxvt.color5: #8B7B8B
+!URxvt.color13: #D8BFD8
 
 !cyan
-urxvt.color6: #A7A15E
-urxvt.color14: #F0E68C
+!URxvt.color6: #A7A15E
+!URxvt.color14: #F0E68C
 
 !white
-urxvt.color7: #DDDDDD
-urxvt.color15: #FFFFFF
+!URxvt.color7: #DDDDDD
+!URxvt.color15: #FFFFFF
 
-urxvt.background: #212021
-urxvt.foreground: #DDDDDD
+!URxvt.background: #212021
+!URxvt.foreground: #DDDDDD
 
-!urxvt.transparent: True
-!urxvt.inheritPixmap: True
+URxvt.background: #1D1F21
+URxvt.foreground: #C5C8C6
+! black
+URxvt.color0: #282A2E
+URxvt.color8: #373B41
+! red
+URxvt.color1: #A54242
+URxvt.color9: #CC6666
+! green
+URxvt.color2: #8C9440
+URxvt.color10: #B5BD68
+! yellow
+URxvt.color3: #DE935F
+URxvt.color11: #F0C674
+! blue
+URxvt.color4: #5F819D
+URxvt.color12: #81A2BE
+! magenta
+URxvt.color5: #85678F
+URxvt.color13: #B294BB
+! cyan
+URxvt.color6: #5E8D87
+URxvt.color14: #8ABEB7
+! white
+URxvt.color7: #707880
+URxvt.color15: #C5C8C6
+
+!URxvt.transparent: True
+!URxvt.inheritPixmap: True
 !hexurxv.internalBorder: 6
 
 !! === Man Page Colors ========================================================
 
-urxvt.colorIT: #87af5f
-urxvt.colorBD: #d7d7d7
-urxvt.colorUL: #87afd7
+URxvt.colorIT: #87af5f
+URxvt.colorBD: #d7d7d7
+URxvt.colorUL: #87afd7
 
 !! === Scrolling options ======================================================
 
-urxvt.buffered: true
-urxvt.jumpScroll: false
-urxvt.saveLines: 4000
-urxvt.scrollBar: false
-urxvt.scrollTtyKeypress: true
-urxvt.scrollTtyOutput: false
-urxvt.scrollWithBuffer: false
-urxvt.scrollstyle: plain
-urxvt.secondaryScroll: false
+URxvt.buffered: true
+URxvt.jumpScroll: false
+URxvt.saveLines: 4000
+URxvt.scrollBar: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: false
+URxvt.scrollstyle: plain
+URxvt.secondaryScroll: false
 
 ! === Font options ===========================================================
 
-urxvt.font: xft:Terminus:pixelsize=13
-urxvt.imFont: xft:Terminus:pixelsize=13
-urxvt.boldFont: xft:Terminus:pixelsize=13
-urxvt.italicFont: xft:Terminus:pixelsize=13
-urxvt.boldItalicFont: xft:Terminus:pixelsize=13
-!urxvt.font: xft:Terminus\ for\ Powerline:pixelsize=13
+URxvt.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
 
-!urxvt.font: xft:Monaco for Powerline:regular:size=8
-!urxvt.imFont: xft:Monaco for Powerline:regular:size=8
-!urxvt.boldFont: xft:Monaco for Powerline:bold:size=8
-!urxvt.italicFont xft:Monaco for Powerline:italic:size8
-!urxvt.boldItalicFont: xft:Monaco for Powerline:bold:italic:size=8
+URxvt.imFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
+URxvt.boldFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
+URxvt.italicFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
+URxvt.boldItalicFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
+!URxvt.font: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
+!URxvt.imFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
+!URxvt.boldFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
+!URxvt.italicFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
+!URxvt.boldItalicFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
+!URxvt.font: xft:Terminus\ for\ Powerline:pixelsize=12
 
-!urxvt.font: xft:Monospace:pixelsize=11
-urxvt.xftAntialias: true
-urxvt.skipBuiltinGlyphs: true
+!URxvt.font: xft:Monaco for Powerline:regular:size=8
+!URxvt.imFont: xft:Monaco for Powerline:regular:size=8
+!URxvt.boldFont: xft:Monaco for Powerline:bold:size=8
+!URxvt.italicFont xft:Monaco for Powerline:italic:size8
+!URxvt.boldItalicFont: xft:Monaco for Powerline:bold:italic:size=8
+
+!URxvt.font: xft:Monospace:pixelsize=11
+URxvt.xftAntialias: true
+URxvt.skipBuiltinGlyphs: true
 !xft.antialias: true
 xft.antialias: 1 
 xft.dpi: 96
@@ -104,24 +137,29 @@ xft.autohint: 0
 xft.lcdfilter: lcddefault
 xft.hintstyle: hintfull
 xft.hinting: 1
-!urxvt.depth: 32
+!URxvt.depth: 32
 
 ! === Url opening ============================================================
 
-urxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.perl-ext-common: default,matcher,vtwheel
 !URxvt.perl-ext-common: vtwheel
-!urxvt.cutchars: `"()'*<>[]{|}"
-!urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-urxvt.url-launcher: /usr/bin/firefox
-urxvt.matcher.button: 1
+!URxvt.cutchars: `"()'*<>[]{|}"
+!URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.url-launcher: /usr/bin/palemoon
+URxvt.matcher.button: 1
 
 ! === Misc ===================================================================
 
-urxvt.cursorBlink: true
-urxvt.loginShell: true
-urxvt.mapAlert: true
-urxvt.pointerBlank: true
-urxvt.resource: value
-urxvt.urgentOnBell: true
-!urxvt.utf8: 2
-!urxvt.inputMethod: scim
+URxvt.cursorBlink: true
+URxvt.loginShell: true
+URxvt.mapAlert: true
+URxvt.pointerBlank: true
+URxvt.resource: value
+URxvt.urgentOnBell: true
+!URxvt.utf8: 2
+!URxvt.inputMethod: scim
+
+! === Dzen2 ==================================================================
+dzen2.font: -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
+dzen2.foreground: #22EE11
+dzen2.background: black

@@ -1,4 +1,6 @@
-colorscheme Monokai
+" colorscheme Monokai
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 
 " An example for a vimrc file.
@@ -25,21 +27,23 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-"Bundle 'https://github.com/tpope/vim-surround'
-Bundle 'mattn/emmet-vim'
-Bundle 'tpope/vim-rails'
-"Bundle 'Bogdanp/browser-connect.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
+Plugin 'gmarik/vundle'
+Plugin 'bling/vim-airline'
+"Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-rails'
+"Plugin 'Bogdanp/browser-connect.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 
 " vim-airline config
 set laststatus=2
 let g:airline_powerline_fonts=0
-let g:airline_theme='powerlineish'
+"let g:airline_theme='powerlineish'
+let g:airline_theme='hybrid'
 let g:airline_enable_syntastic=1
 
 let g:airline_left_sep = '»'

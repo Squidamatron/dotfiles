@@ -35,24 +35,16 @@ fi
 
 #PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└──╼ \[\e[0m\]'
 #PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└──▬ \[\e[0m\]'
-PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└── \[\e[0m\]'
+#PS1='\[\e[0;37m\]┌─[\e[1;37m\]\u\[\e[0;37m\]][\[\e[0;34m\]\h\[\e[0;37m\]][\[\e[0;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[0;37m\]]\n\[\e[0;37m\]└── \[\e[0m\]'
+PS1='\[\e[1;37m\]┌─[\e[1;37m\]\u\[\e[1;37m\]][\[\e[1;34m\]\h\[\e[1;37m\]][\[\e[1;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[1;37m\]]\n\[\e[1;37m\]└── \[\e[0m\]'
 PS2="╾──╼ "
 
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
 
-# run windows executables that only output in the console
-alias winecmd='wineconsole --backend=user'
-
 # get a quick view of some system temperatures
-alias atitemp='aticonfig --odgt'
+alias nvidiatemp='nvidia-smi -q -d TEMPERATURE'
 alias cputemp='sensors coretemp-isa-0000'
-
-# get a quick view of GPU clocks/load
-alias atiload='aticonfig --od-getclock'
-
-# No program should use capitals! Because I'll never remember it.
-alias amdoverdrivectrl='AMDOverdriveCtrl'
 
 # creat a video of the current screen
 alias screencap="ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /home/jon/Videos/recorded/out.mpg"
@@ -62,9 +54,6 @@ alias pacown='pacman -Qo'
 
 # alias android-connect='go-mtpfs /home/jon/.android_mount/'
 alias android-disconnect='fusermount -u /home/jon/.android_mount/'
-
-# wake the phone while the power button is borked
-alias ooff='adb shell input keyevent 26'
 
 function android-connect {
 	go-mtpfs /home/jon/.android_mount/ &
@@ -114,6 +103,10 @@ function define {
 
 function ytstream {
 	mplayer -cache 1000000 -cache-min 5 -cookies -cookies-file /tmp/cookie.txt $(youtube-dl -g --cookies /tmp/cookie.txt "$1")
+}
+
+function twitch {
+	livestreamer --twitch-cookie "_twitch_session_id=e91904e607371562d9581dc100541bb5; persistent 57157465%3A1da1c20f8a488341ea30dbcc84%3A1262ef44f91c17864d8de836e7" -v twitch.tv/"$1" source
 }
 
 # autojump addition
