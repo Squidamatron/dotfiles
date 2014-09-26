@@ -1,5 +1,5 @@
 # Start thunar as a daemon
-thunar --daemon &
+#thunar --daemon &
 numlockx &
 
 # Colors and whatnot
