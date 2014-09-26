@@ -3,12 +3,27 @@
 # Use ALSA as the main audio out
 ao=alsa
 
-# Use vaapi for hardware accelerated processing
-vo=vaapi:gl
+# [ATI] Use vaapi for hardware accelerated processing
+#vo=vaapi:gl
+# 
+# [NVIDIA] Use vdpau for hardware accelerated processing
+vo=vdpau,gl,xv
+vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau,
 
-[gnome-mplayer]
-msglevel=all=5
-vo=vaapi:gl
+# Use as many threads as you have cores
+lavdopts=threads=4
+
+# Find ASS subs and use the fonts provided in the file if possible
+ass=1
+ass-hinting=3
+embeddedfonts=1
+fontconfig=1
+
+# The highest level of subtitle anti-aliasing
+spuaa=4
+
+# Remove lirc. I don't use a damned remote anyway!
+nolirc=yes
 
 # Remove lirc. I don't use a damned remote anyway!
 nolirc=yes
