@@ -1,5 +1,6 @@
 # Start thunar as a daemon
 #thunar --daemon &
+wmname LG3D &
 numlockx &
 
 # Colors and whatnot
