@@ -145,7 +145,8 @@ URxvt.perl-ext-common: default,matcher,vtwheel
 !URxvt.perl-ext-common: vtwheel
 !URxvt.cutchars: `"()'*<>[]{|}"
 !URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.url-launcher: /usr/bin/palemoon
+!URxvt.url-launcher: /usr/bin/palemoon
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
 ! === Misc ===================================================================

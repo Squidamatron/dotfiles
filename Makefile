@@ -33,5 +33,5 @@ install-mplayer:
 	ln -s `pwd`/mplayer/config ~/.mplayer/config
 
 install-mpd:
-	mkdir -p ~/.mpd
-	ln -s `pwd`/mpd/mpd.conf ~/.mpd/mpd.conf
+	mkdir -p ~/.config/mpd
+	ln -s `pwd`/mpd/mpd.conf ~/.config/mpd/mpd.conf

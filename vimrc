@@ -24,18 +24,23 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+"set rtp+=~/.vim/bundle/vundle
+"call vundle#rc()
 
-Plugin 'gmarik/vundle'
-Plugin 'bling/vim-airline'
-"Plugin 'https://github.com/tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-rails'
-"Plugin 'Bogdanp/browser-connect.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
+call plug#begin('~/.vim/plugged')
+
+"Plug 'gmarik/vundle'
+Plug 'bling/vim-airline'
+"Plun 'https://github.com/tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-rails'
+"Plun 'Bogdanp/browser-connect.vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'airblade/vim-gitgutter'
+Plug 'rpdelaney/vim-sourcecfg'
+
+call plug#end()
 
 filetype plugin indent on
 
@@ -43,8 +48,9 @@ filetype plugin indent on
 set laststatus=2
 let g:airline_powerline_fonts=0
 "let g:airline_theme='powerlineish'
-let g:airline_theme='hybrid'
-let g:airline_enable_syntastic=1
+"let g:airline_theme='hybrid'
+let g:AirlineTheme='hybrid'
+let g:airline#extensions#syntastic#enabled=1
 
 let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
