@@ -21,6 +21,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES="auto"
 
 source ~/.git-prompt.sh
 
+# infinality font settings
+source ~/.infinality
+
 PS1='\[\e[1;37m\]┌─[\e[1;37m\]\u\[\e[1;37m\]][\[\e[1;34m\]\h\[\e[1;37m\]][\[\e[1;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[1;37m\]]\n\[\e[1;37m\]└── \[\e[0m\]'
 PS2="└── "
 
