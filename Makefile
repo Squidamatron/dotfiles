@@ -4,7 +4,8 @@ install: install-vim install-bash \
 	 install-tmux install-browser \
 	 install-xinit install-xresources \
 	 install-ncmpcpp install-mplayer \
-	 install-mpd
+	 install-mpd \
+	 install-infinality
 
 install-vim:
 	ln -s `pwd`/vimrc ~/.vimrc
@@ -35,3 +36,7 @@ install-mplayer:
 install-mpd:
 	mkdir -p ~/.config/mpd
 	ln -s `pwd`/mpd/mpd.conf ~/.config/mpd/mpd.conf
+
+install-infinality:
+	ln -s `pwd`/infinality ~/.infinality
+	echo "Install infinality via the package manager!"
