@@ -22,6 +22,7 @@ install-bash:
 
 install-tmux:
 	ln -s `pwd`/tmux.conf ~/.tmux.conf
+	ln -s `pwd`/tmux ~/.tmux
 
 install-browser:
 	ln -s `pwd`/userChrome.css ~/.moonchild\ productions/pale\ moon/$(chromeDir)/chrome/userChrome.css

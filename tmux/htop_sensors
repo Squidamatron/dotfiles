@@ -1,0 +1,6 @@
+select-pane -t 0
+split-window -vp 50 'htop'
+split-window -vp 46 'watch nvidia-smi -q -d TEMPERATURE'
+split-window -hp 50 'watch sensors coretemp-isa-0000'
+kill-pane -t 0
+select-pane -U
