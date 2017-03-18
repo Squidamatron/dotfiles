@@ -36,6 +36,7 @@ install-xresources:
 install-ncmpcpp:
 	mkdir -p ~/.ncmpcpp
 	ln -s `pwd`/ncmpcpp/config ~/.ncmpcpp/config
+	ln -s `pwd`/ncmpcpp/bindings ~/.ncmpcpp/bindings
 
 install-mplayer:
 	mkdir -p ~/.mplayer
