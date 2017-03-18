@@ -12,6 +12,9 @@ export MPD_HOST=ArchieMPD@localhost
 export SDL_AUDIODRIVER=alsa
 export PATH=$PATH:/opt/android-sdk/extras/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+export MOZ_USE_OMTC=1
+export AURDEST=/tmp/pacaur-cache
+export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
 
 # git-prompt variables
 export GIT_PS1_SHOWUPSTREAM="auto"
@@ -20,9 +23,6 @@ export GIT_PS1_SHOWSTASHSTATE="auto"
 export GIT_PS1_SHOWUNTRACKEDFILES="auto"
 
 source ~/.git-prompt.sh
-
-# infinality font settings
-source ~/.infinality
 
 PS1='\[\e[1;37m\]┌─[\e[1;37m\]\u\[\e[1;37m\]][\[\e[1;34m\]\h\[\e[1;37m\]][\[\e[1;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[1;37m\]]\n\[\e[1;37m\]└── \[\e[0m\]'
 PS2="└── "

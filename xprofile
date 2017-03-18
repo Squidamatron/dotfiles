@@ -1,0 +1,14 @@
+# Things
+wmname LG3D &
+numlockx &
+feh --bg-center ~/Pictures/Backgrounds/1367459225672.jpg &
+
+# Colors and whatnot
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+# Font stuffs
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+# clearly dwm only >.>
+sh $HOME/.config/dwm-statusbar &

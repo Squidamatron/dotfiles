@@ -53,6 +53,7 @@ display_volume_level = "yes"
 display_bitrate = "yes"
 follow_now_playing_lyrics = "yes"
 data_fetching_delay = "no"
+allow_for_physical_item_deletion = "no"
 
 ##### visualisation #####
 visualizer_fifo_path = "/tmp/mpd.fifo"

@@ -1,3 +1,0 @@
-An assortment of config files that I've created and/or borrowed/edited from the internet.
-
-I borrowed the python install script from ehamberg and edited it to install my userChrome.css [Ahoka's] in the right place regardless of Firefox profile name. No idea if it works with multiple profiles present!

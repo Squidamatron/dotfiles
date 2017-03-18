@@ -108,7 +108,6 @@ URxvt.secondaryScroll: false
 ! === Font options ===========================================================
 
 URxvt.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-
 URxvt.imFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
 URxvt.boldFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
 URxvt.italicFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0

@@ -2,7 +2,7 @@ chromeDir=$(shell cat ~/.moonchild\ productions/pale\ moon/profiles.ini | awk -F
 
 install: install-vim install-bash \
 	 install-tmux install-browser \
-	 install-xinit install-xresources \
+	 install-xprofile install-xresources \
 	 install-ncmpcpp install-mplayer \
 	 install-mpd \
 	 install-infinality
@@ -19,8 +19,8 @@ install-tmux:
 install-browser:
 	ln -s `pwd`/userChrome.css ~/.moonchild\ productions/pale\ moon/$(chromeDir)/chrome/userChrome.css
 
-install-xinit:
-	ln -s `pwd`/xinitrc ~/.xinitrc
+install-xprofile:
+	ln -s `pwd`/xprofile ~/.xprofile
 
 install-xresources:
 	ln -s `pwd`/Xresources ~/.Xresources

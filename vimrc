@@ -1,24 +1,10 @@
-" colorscheme Monokai
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
-
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
-
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -52,16 +38,21 @@ let g:airline_powerline_fonts=0
 let g:AirlineTheme='hybrid'
 let g:airline#extensions#syntastic#enabled=1
 
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
 let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
 let g:airline_right_sep = ''
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_linecolumn_prefix = 'LN'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_whitespace_symbol = 'Ξ'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.readonly = 'RO'
 
-"NERDTree config
+" NERDTree config
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
