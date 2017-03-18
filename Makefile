@@ -43,7 +43,7 @@ install-mplayer:
 
 install-mpd:
 	mkdir -p ~/.config/mpd
-	ln -s `pwd`/mpd/mpd.conf ~/.config/mpd/mpd.conf
+	ln -s `pwd`/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
 install-compton:
 	mkdir -p ~/.config/compton
