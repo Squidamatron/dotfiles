@@ -1,0 +1,52 @@
+# General
+backend = "glx";
+vsync = "opengl-swc";
+glx-no-stencil = true;
+glx-copy-from-front = false;
+glx-swap-method = 1;
+detect-rounded-corners = true;
+xrender-sync = true;
+xrender-sync-fence = true;
+sw-opti = 1;
+
+# Shadow
+shadow = true;
+no-dnd-shadow = true;
+no-dock-shadow = true;
+shadow-radius = 7;
+shadow-offset-x = -7;
+shadow-offset-y = -7;
+shadow-opacity = 0.4;
+shadow-exclude = [
+ "n:e:Notification",
+ "n:e:Dunst",
+ "g:e:Conky",
+ "n:w:Firefox",
+ "n:w:*Chrome*",
+ "n:w:*Chromium*",
+ "class_g = 'Dmenu'"
+];
+
+# Opacity
+menu-opacity = 1.0;
+inactive-opacity-override = false;
+alpha-step = 0.06;
+detect-client-opacity = true;
+
+# Fading
+fading = true;
+fade-delta = 3;
+fade-in-step = 0.03;
+fade-out-step = 0.03;
+
+# Window type settings
+wintypes:
+{
+  tooltip = { fade = true; shadow = false; };
+  menu = { shadow = false; };
+  dropdown_menu = { shadow = false; };
+  popup_menu =  { shadow = false; };
+  utility =  { shadow = false; };
+};
+
+# vim:ft=conf:
