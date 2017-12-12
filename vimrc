@@ -1,6 +1,3 @@
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -17,6 +14,7 @@ call plug#begin('~/.vim/plugged')
 
 "Plug 'gmarik/vundle'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "Plun 'https://github.com/tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-rails'
@@ -25,32 +23,54 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'rpdelaney/vim-sourcecfg'
+Plug 'w0ng/vim-hybrid'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
+
+set background=dark
+let g:hybrid_custom_term_colors = 1
+colorscheme hybrid
+
+" Color current line number
+hi clear CursorLine
+augroup CLClear
+	autocmd! ColorScheme * hi clear CursorLine
+augroup END
+
+hi CurSorLineNR cterm=bold
+augroup CLNRSet
+	autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+
+" disable with :set cul!
+set cul
 
 filetype plugin indent on
 
 " vim-airline config
 set laststatus=2
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
 "let g:airline_theme='hybrid'
 let g:AirlineTheme='hybrid'
-let g:airline#extensions#syntastic#enabled=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#branch#branch#enabled = 1
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
-let g:airline_right_sep = '«'
 let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = '☰'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly = 'RO'
+let g:airline_symbols.branch = ''
 
 " NERDTree config
 map <C-n> :NERDTreeToggle<CR>
