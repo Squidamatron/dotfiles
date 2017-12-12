@@ -10,8 +10,9 @@ export EDITOR=vim
 export BROWSER=firefox
 export MPD_HOST=ArchieMPD@localhost
 export SDL_AUDIODRIVER=alsa
-export PATH=$PATH:/opt/android-sdk/extras/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
-export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+#export PATH=$PATH:/opt/android-sdk/extras/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export PATH=$PATH:/opt/android-sdk/extras/
+#export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
 export MOZ_USE_OMTC=1
 export AURDEST=/tmp/pacaur-cache
 export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
@@ -91,6 +92,34 @@ function define {
 
 function ytstream {
 	mplayer -cache 1000000 -cache-min 5 -cookies -cookies-file /tmp/cookie.txt $(youtube-dl -g --cookies /tmp/cookie.txt "$1")
+}
+
+function aura {
+	# Information Gathering
+	package="$1"
+	check=$(grep -w -c "installed $1 " /var/log/pacman.log)
+
+	if [ "$check" != '0' ]; then
+		first_install=$(grep -w "installed $1 " /var/log/pacman.log | cut -c 1-18)
+		num_upgrades=$(grep -w -c "upgraded $1 " /var/log/pacman.log)
+		recent_actions=$(grep -w -E "(upgraded|removed|installed) $1 " /var/log/pacman.log | tail -n 5)
+
+		# Color Definition
+		ORANGE='\033[0;33m'
+		NC='\033[0m'
+
+		echo -e "${ORANGE}Package${NC}\t\t: $package"
+		echo -e "${ORANGE}First Install${NC}\t: $first_install"
+		echo -e "${ORANGE}Upgrades${NC}\t: $num_upgrades"
+		echo -e "${ORANGE}Recent Actions${NC}\t:\n$recent_actions\n"
+	else
+		# Color Definition
+		RED='\033[1;31m'
+		YELLOW='\033[1;33m'
+		NC='\033[0m'
+
+		echo -e "${RED}Error: ${NC}Package not found!: ${YELLOW}$package${NC}\n"
+	fi
 }
 
 # autojump addition
