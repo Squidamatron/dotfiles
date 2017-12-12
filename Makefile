@@ -53,7 +53,7 @@ install-compton:
 install-polybar:
 	mkdir -p ~/.config/polybar
 	ln -s `pwd`/config/polybar/config ~/.config/polybar/config
-	ln -s `pwd`config/polybar/launch.sh ~/.config/polybar/launch.sh
+	ln -s `pwd`/config/polybar/launch.sh ~/.config/polybar/launch.sh
 
 install-bspwm:
 	mkdir -p ~/.config/bspwm
