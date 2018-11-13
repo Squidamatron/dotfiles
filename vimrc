@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rpdelaney/vim-sourcecfg'
 Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-fugitive'
+Plug 'withgod/vim-sourcepawn'
 
 call plug#end()
 

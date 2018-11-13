@@ -1,60 +1,5 @@
-XTerm*background:    black
-XTerm*foreground:    white
-XTerm*highlightcolor: white
-xterm*utf8:		2
-xterm*dynamicColors:	true
 
-!xterm*FontFace = Roboto
-!xterm*FontSize = 9
-
-!term screen-256color
-
-!URxvt.depth: 32
-!URxvt.background: rgba:1111/1111/1111/dddd
-
-!URxvt.transparent: true
-! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
-!URxvt.shading: 50
-!URxvt.scrollBar: off
-
-!URxvt*termName:screen-256color
-
-!URxvt*foreground: #EAEAEA
-
-!black
-!URxvt.color0: #353535
-!URxvt.color8: #666666
-
-!red
-!URxvt.color1: #D81860
-!URxvt.color9: #F00060
-
-!green
-!URxvt.color2: #B7CE42
-!URxvt.color10: #BDE077
-
-!brown/yellow
-!URxvt.color3: #FEA63C
-!URxvt.color11: #FFE863
-
-!blue
-!URxvt.color4: #6F99B4
-!URxvt.color12: #7C96B0
-
-!magenta
-!URxvt.color5: #8B7B8B
-!URxvt.color13: #D8BFD8
-
-!cyan
-!URxvt.color6: #A7A15E
-!URxvt.color14: #F0E68C
-
-!white
-!URxvt.color7: #DDDDDD
-!URxvt.color15: #FFFFFF
-
-!URxvt.background: #212021
-!URxvt.foreground: #DDDDDD
+!! == Main Colors =============================================================
 
 URxvt.background: #1D1F21
 URxvt.foreground: #C5C8C6
@@ -83,10 +28,6 @@ URxvt.color14: #8ABEB7
 URxvt.color7: #707880
 URxvt.color15: #C5C8C6
 
-!URxvt.transparent: True
-!URxvt.inheritPixmap: True
-!hexurxv.internalBorder: 6
-
 !! === Man Page Colors ========================================================
 
 URxvt.colorIT: #87af5f
@@ -107,29 +48,10 @@ URxvt.secondaryScroll: false
 
 ! === Font options ===========================================================
 
-!URxvt.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
 URxvt.font: -*-terminesspowerline-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-!URxvt.imFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-!URxvt.boldFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-!URxvt.italicFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-!URxvt.boldItalicFont: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,-misc-kochi gothic-medium-r-normal-*-12-0-0-0-p-0-jisx0201.1976-0
-!URxvt.font: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
-!URxvt.imFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
-!URxvt.boldFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
-!URxvt.italicFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
-!URxvt.boldItalicFont: xft:Terminus:pixelsize=12,xft:Kochi Gothic:antialias=false,xft:Baekmuk Gulim
-!URxvt.font: xft:Terminus\ for\ Powerline:pixelsize=12
 
-!URxvt.font: xft:Monaco for Powerline:regular:size=8
-!URxvt.imFont: xft:Monaco for Powerline:regular:size=8
-!URxvt.boldFont: xft:Monaco for Powerline:bold:size=8
-!URxvt.italicFont xft:Monaco for Powerline:italic:size8
-!URxvt.boldItalicFont: xft:Monaco for Powerline:bold:italic:size=8
-
-!URxvt.font: xft:Monospace:pixelsize=11
 URxvt.xftAntialias: true
 URxvt.skipBuiltinGlyphs: true
-!xft.antialias: true
 xft.antialias: 1 
 xft.dpi: 96
 xft.rgba: rgb
@@ -157,10 +79,4 @@ URxvt.mapAlert: true
 URxvt.pointerBlank: true
 URxvt.resource: value
 URxvt.urgentOnBell: true
-!URxvt.utf8: 2
-!URxvt.inputMethod: scim
 
-! === Dzen2 ==================================================================
-dzen2.font: -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
-dzen2.foreground: #22EE11
-dzen2.background: black

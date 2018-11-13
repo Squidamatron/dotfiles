@@ -20,5 +20,9 @@ bspc rule -a Screenkey manage=off
 bspc rule -a feh state=floating
 bspc rule -a Transmission-gtk state=floating
 
+bspc subscribe desktop_focus | while read -r line; do
+	bspc query -T -d | dunstify -r 1 "$(jshon -e name -u)"
+done &
+
 compton --config ~/.config/compton/config -b
-$HOME/.config/polybar/launch.sh
+#$HOME/.config/polybar/launch.sh

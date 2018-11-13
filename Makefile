@@ -62,3 +62,10 @@ install-bspwm:
 install-sxhkd:
 	mkdir -p ~/.config/sxhkd/
 	ln -s `pwd`/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+
+install-dunst:
+	mkdir -p ~/.config/dunst/
+	ln -s `pwd`/config/dunst/dunstrc ~/.config/dunst/dunstrc
+
+install-mpv:
+	ln -s `pwd`/config/mpv ~/.config/mpv

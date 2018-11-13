@@ -8,11 +8,9 @@
 source /etc/profile
 export EDITOR=vim
 export BROWSER=firefox
-export MPD_HOST=ArchieMPD@localhost
+#export MPD_HOST=ArchieMPD@localhost
 export SDL_AUDIODRIVER=alsa
-#export PATH=$PATH:/opt/android-sdk/extras/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 export PATH=$PATH:/opt/android-sdk/extras/
-#export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
 export MOZ_USE_OMTC=1
 export AURDEST=/tmp/pacaur-cache
 export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
@@ -30,6 +28,7 @@ PS2="└── "
 
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 # get a quick view of some system temperatures
 alias nvidiatemp='nvidia-smi -q -d TEMPERATURE'

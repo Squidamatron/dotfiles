@@ -130,23 +130,26 @@ super + {Left,Down,Up,Right}
 # media keys
 #
 
+super + alt + m
+	dunstify -a "MPD" -r 1 "$(mpc current)"
+
 XF86Tools
-	urxvtc -geometry 130x44 -e ncmpcpp -h ArchieMPD@localhost
+	urxvtc -geometry 130x44 -e ncmpcpp
 
 XF86AudioPlay
-	mpc -h ArchieMPD@localhost toggle
+	mpc toggle
 
 XF86AudioNext
-	mpc -h ArchieMPD@localhost next
+	mpc next; dunstify -r 1 "$(mpc current)"
 
 XF86AudioPrev
-	mpc -h ArchieMPD@localhost prev
+	mpc prev; dunstify -r 1 "$(mpc current)"
 
 XF86AudioLowerVolume
-	mpc -h ArchieMPD@localhost volume -5
+	mpc volume -5
 
 XF86AudioRaiseVolume
-	mpc -h ArchieMPD@localhost volume +5
+	mpc volume +5
 
 XF86Explorer
 	thunar
@@ -163,3 +166,18 @@ Print
 # Lock the screen
 super + shift + ctrl + l
 	i3lock-fancy
+
+# maybe toggle polybar?
+super + d
+	killall -s 9 polybar && sleep 0 && bspc config top_padding 0
+
+super + shift + d
+	/home/jon/.config/polybar/launch.sh
+
+# Date & Time notification
+super + alt + t
+	dunstify -r 1 "$(date +'%a %d %b, %I %M %p' | tr '[:upper:]' '[:lower:]')"
+
+# List Desktops with open programs
+super + alt + o
+	dunstify -r 1 "$(bspc query -D -d .occupied --names)"
