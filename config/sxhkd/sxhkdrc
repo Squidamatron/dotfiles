@@ -127,11 +127,11 @@ super + {Left,Down,Up,Right}
 	 bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #
-# media keys
+# Custom Binds
 #
 
 super + alt + m
-	dunstify -a "MPD" -r 1 "$(mpc current)"
+	musicnotify np
 
 XF86Tools
 	urxvtc -geometry 130x44 -e ncmpcpp
@@ -140,16 +140,16 @@ XF86AudioPlay
 	mpc toggle
 
 XF86AudioNext
-	mpc next; dunstify -r 1 "$(mpc current)"
+	mpc next
 
 XF86AudioPrev
-	mpc prev; dunstify -r 1 "$(mpc current)"
+	mpc prev
 
 XF86AudioLowerVolume
-	mpc volume -5
+	musicnotify volad -5
 
 XF86AudioRaiseVolume
-	mpc volume +5
+	musicnotify volad +5
 
 XF86Explorer
 	thunar
@@ -167,17 +167,10 @@ Print
 super + shift + ctrl + l
 	i3lock-fancy
 
-# maybe toggle polybar?
-super + d
-	killall -s 9 polybar && sleep 0 && bspc config top_padding 0
-
-super + shift + d
-	/home/jon/.config/polybar/launch.sh
-
 # Date & Time notification
 super + alt + t
-	dunstify -r 1 "$(date +'%a %d %b, %I %M %p' | tr '[:upper:]' '[:lower:]')"
+	dunstify -r 1 "$(date +'%a %d %b, %I %M %p')"
 
 # List Desktops with open programs
 super + alt + o
-	dunstify -r 1 "$(bspc query -D -d .occupied --names)"
+	dunstify -r 1 "Open" "$(bspc query -D -d .occupied --names)"

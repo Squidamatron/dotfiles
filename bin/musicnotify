@@ -1,0 +1,55 @@
+#!/bin/sh
+
+music (){
+	while true; do
+		mpc idle player
+
+		form="<b>Title:</b>\t%title%\n<b>Artist:</b>\t%artist%\n<b>Album:</b>\t%album%\n<b>Length:</b>\t%time%"
+
+		toprint="`mpc current -f \"$form\" | sed \"s:&:&amp;:g\"`"
+		#echo "$toprint"
+
+		musicpath=$(awk -F'"' '/music_directory/ { print $2 }' "$HOME"/.config/mpd/mpd.conf)
+		artpath="$musicpath/$(dirname "$(mpc current -f '%file%')")/cover.jpg"
+		#artpath="/media/OTHER_STORAGE/Music/$(dirname "$(mpc current -f '%file%')")/cover.jpg"
+
+		#rm /tmp/cover.png
+		#convert -resize 128x128 "$artpath" /tmp/cover.png
+
+		#dunstify -a "MPD" -r 1337 -i "/tmp/cover.png" "$toprint"
+		dunstify -a "MPD" -r 1337 -i "$artpath" "$toprint"
+	done
+}
+
+np () {
+	form="<b>Title:</b>\t%title%\n<b>Artist:</b>\t%artist%\n<b>Album:</b>\t%album%"
+
+	toprint="`mpc current -f \"$form\" | sed \"s:&:&amp;:g\"`"
+	#echo "$toprint"
+
+	time="`mpc | egrep '(playing|paused)' | awk '{ print $3 }' | sed \"s:&:&amp;:g\"`"
+	showtime="<br/><b>Time:</b>&#9;$time"
+
+	musicpath=$(awk -F'"' '/music_directory/ { print $2 }' "$HOME"/.config/mpd/mpd.conf)
+	artpath="$musicpath/$(dirname "$(mpc current -f '%file%')")/cover.jpg"
+	#artpath="/media/OTHER_STORAGE/Music/$(dirname "$(mpc current -f '%file%')")/cover.jpg"
+
+	#rm /tmp/cover.png
+	#convert -resize 128x128 "$artpath" /tmp/cover.png
+
+	#dunstify -a "MPD" -r 1337 -i "/tmp/cover.png" "$toprint"
+	dunstify -a "MPD" -r 1337 -i "$artpath" "$toprint$showtime"
+}
+
+vol () {
+	mpc volume "$1"
+	vol=$(mpc | tail -n1 | awk '{print $2}')
+	dunstify -a "MPD" -r 1337 "Music Volume: $vol"
+}
+
+case $1 in
+	music)	music	;;
+	np)	np	;;
+	volad)	vol "$2"	;;
+	*)	exit 1	;;
+esac

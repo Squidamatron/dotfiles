@@ -24,5 +24,6 @@ bspc subscribe desktop_focus | while read -r line; do
 	bspc query -T -d | dunstify -r 1 "$(jshon -e name -u)"
 done &
 
+musicnotify music &
+
 compton --config ~/.config/compton/config -b
-#$HOME/.config/polybar/launch.sh

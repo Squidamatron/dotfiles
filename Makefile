@@ -12,13 +12,18 @@ install: install-vim \
 	 install-compton \
 	 install-polybar \
 	 install-bspwm \
-	 install-sxhkd
+	 install-sxhkd \
+	 install-dunst \
+	 install-mpv \
+	 install-scripts
 
 install-vim:
 	ln -s `pwd`/vimrc ~/.vimrc
 
 install-bash:
-	ln -s `pwd`/vimrc ~/.bashrc
+	ln -s `pwd`/bashrc ~/.bashrc
+	ln -s `pwd`/bash_profile ~/.bash_profile
+	ln -s `pwd`/profile ~/.profile
 
 install-tmux:
 	ln -s `pwd`/tmux.conf ~/.tmux.conf
@@ -69,3 +74,6 @@ install-dunst:
 
 install-mpv:
 	ln -s `pwd`/config/mpv ~/.config/mpv
+
+install-scripts:
+	ln -s `pwd`/bin ~/.bin
