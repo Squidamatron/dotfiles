@@ -29,6 +29,7 @@ PS2="└── "
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 
 # get a quick view of some system temperatures
 alias nvidiatemp='nvidia-smi -q -d TEMPERATURE'

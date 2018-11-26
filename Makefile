@@ -1,4 +1,4 @@
-chromeDir=$(shell cat ~/.moonchild\ productions/pale\ moon/profiles.ini | awk -F\= '/Path/ {print $$2}')
+userjsDir=$(shell cat ~/.mozilla/firefox/profiles.ini | awk -F\= '/Path/ { print $$2 }')
 
 install: install-vim \
 	 install-bash \
@@ -30,7 +30,7 @@ install-tmux:
 	ln -s `pwd`/tmux ~/.tmux
 
 install-browser:
-	ln -s `pwd`/userChrome.css ~/.moonchild\ productions/pale\ moon/$(chromeDir)/chrome/userChrome.css
+	ln -s `pwd`/user.js ~/.mozilla/firefox/$(userjsDir)/user.js
 
 install-xprofile:
 	ln -s `pwd`/xprofile ~/.xprofile

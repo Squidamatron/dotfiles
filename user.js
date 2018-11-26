@@ -1,77 +1,57 @@
-/* Add your desired preferences to user.js in your Firefox profile's folder */
-
-// Turn off the new tab page, and make it about:blank
-user_pref("browser.newtab.url", "about:blank"); 
-
 // Turn off Geolocation
 user_pref("geo.enabled", false); 
 
-// Override the useragent to the most common useragent
-//user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0"); 
-
-// Force installation of non-updated add-ons on Firefox 20 
-//user_pref("extensions.checkCompatibility.20", false); 
+// Tracks link clicking
+user_pref("beacon.enabled", false);
 
 // Disable prefetching (preloading of pages) and DNS prefetching, which lowers RAM usage
 user_pref("network.prefetch-next", false); 
-user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.disablePrefetch", true);
 
-// Override location bar search
-//user_pref("keyword.URL", "https://duckduckgo.com/?q=");
-//user_pref("keyword.URL", "https://startpage.com/do/search?q=");
-
-// Enable HTTP pipelineing regularly, on SSL pages, and on proxies, respectively
-user_pref("network.http.pipelining", true);
-user_pref("network.http.pipelining.ssl", true);
-user_pref("network.http.proxy.pipelining", true);
-
-// Increase the amount of connections/requests Firefox will make
-user_pref("network.http.pipelining.maxrequests", 64);
-user_pref("network.http.max-connections", 900);
-user_pref("network.http.max-persistent-connections-per-server", 32);
-
-// Speed up the security delay when installing add-ons
-
-// Disable tab animations
-//user_pref("browser.tabs.animate", false);
-
-// Put cache on RAM
-//user_pref("browser.cache.disk.enable", false);
-//user_pref("browser.cache.memory.enable", true
-//user_pref("browser.cache.memory.max_entry_size", -1);
-
-// Reduce page loading delay
-/*user_pref("nglayout.initialpaint.delay", 0); 
-user_pref("content.interrupt.parsing", true);
-user_pref("content.max.tokenizing.time", 100000);
-user_pref("content.notify.backoffcount", -1);
-user_pref("content.notify.interval", 100000);
-user_pref("content.notify.ontimer", true);
-user_pref("content.switch.threshold", 2000000);
-*/
-
-// Remove submenu slide delay
-user_pref("ui.submenuDelay", 0);
+/*** MIGHT WANT THESE OFF ***/
 
 // Set a "do-not-track" header to tell sites not to track browsing habits
-user_pref("privacy.donottrackheader.enabled", true);
+//user_pref("privacy.donottrackheader.enabled", true);
 
-//Disable Hello, Pocket and WebRTC 
-user_pref("loop.enabled", false);
-user_pref("browser.pocket.enabled", true);
+// Set Tracking Protection On
+//user_pref("privacy.trackingprotection.enabled", true);
+
+/*** MIGHT WANT THESE OFF ***/
+
+//WebRTC 
 user_pref("media.navigator.enabled", false);
 user_pref("media.peerconnection.enabled", false);
 
+// Show Punycode
+user_pref("network.IDN_show_punycode", true);
+
+// Dotted outline box on links/selections -- 0 disables
+//user_pref("browser.display.focus_ring_width", 0);
+
+// Smooth Scroll settings
+user_pref("general.smoothScroll.currentVelocityWeighting", "0");
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.82");
+user_pref("general.smoothScroll.other", false);
+// Default this on Linux...?
+user_pref("mousewheel.min_line_scroll_amount", 20);
+
+// Do NOT start with Windows -- Windows Only
+//user_pref("toolkit.winRegisterApplicationRestart", false);
+
+// Might be needed?
+//user_pref("browser.download.autohideButton", false);
+
+// I mean...maybe? We'll see...
 // Media Source Extensions for glorious YouTube
-user_pref("media.mediasource.enabled", true);
+/*user_pref("media.mediasource.enabled", true);
 user_pref("media.mediasource.webm.enabled", true);
 user_pref("media.fragmented-mp4.exposed", true);
 user_pref("media.fragmented-mp4.ffmpeg.enabled", true);
 user_pref("media.fragmented-mp4.gmp.enabled", true);
+*/
 
 // Set proper spellchecker dictionary
 // - Doesn't work properly, must delete dictionaries in /usr/share/hunspell
-user_pref("spellchecker.dictionary", "en-US");
+//user_pref("spellchecker.dictionary", "en-US");
 
-// Set Tracking Protection On
-user_pref("privacy.trackingprotection.enabled", true);
