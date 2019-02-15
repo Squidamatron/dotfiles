@@ -1,0 +1,10 @@
+#!/bin/bash
+
+windows="$(bspc query -D -d .occupied --names)"
+
+if [ -z "$windows" ]
+then
+	dunstify -r 1 "No Open Windows"
+else
+	dunstify -r 1 "Open:" "$windows"
+fi

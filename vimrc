@@ -13,7 +13,8 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 "Plug 'gmarik/vundle'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plun 'https://github.com/tpope/vim-surround'
 Plug 'mattn/emmet-vim'

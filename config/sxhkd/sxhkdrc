@@ -160,8 +160,17 @@ XF86Calculator
 XF86Mail
 	urxvtc -geometry 130x44 -e ranger
 
+# Screenshot - Fullscreen
 Print
-	scrotscript
+	scrotutl -f
+
+# Screenshot - Selection
+ctrl + Print
+	scrotutl -s
+
+# Screenshot - Active Window
+alt + Print
+	scrotutl -w
 
 # Lock the screen
 super + shift + ctrl + l
@@ -173,4 +182,4 @@ super + alt + t
 
 # List Desktops with open programs
 super + alt + o
-	dunstify -r 1 "Open" "$(bspc query -D -d .occupied --names)"
+	openwin

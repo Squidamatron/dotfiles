@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# scrotutl - wrapper script of scrot
+
+function print_help() {
+	echo "Usage: $0 <argument>"
+	echo "-f: Fullscreen"
+	echo "-s: Select an Area"
+	echo "-w: Select a Window"
+}
+
+function send_noti() {
+	dunstify -a "scrot" "Screenshot Taken"
+}
+
+if [ $# -eq 0 ]; then
+	sleep 0.2 && scrot -e 'mv $f ~/Pictures/screenshots' && send_noti
+elif [ $# -eq 1 ]; then
+	case $1 in
+		"-h") print_help;;
+		"-f") scrot -e 'mv $f ~/Pictures/screenshots' && send_noti;;
+		"-s") sleep 0.2 && scrot -sz -e 'mv $f ~/Pictures/screenshots' && send_noti;;
+		"-w") scrot -u -e 'mv $f ~/Pictures/screenshots' && send_noti;;
+	esac
+else
+	print_help
+fi

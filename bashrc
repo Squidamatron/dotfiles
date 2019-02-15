@@ -97,12 +97,12 @@ function ytstream {
 function aura {
 	# Information Gathering
 	package="$1"
-	check=$(grep -w -c "installed $1 " /var/log/pacman.log)
+	check=$(grep --text -w -c "installed $1 " /var/log/pacman.log)
 
 	if [ "$check" != '0' ]; then
-		first_install=$(grep -w "installed $1 " /var/log/pacman.log | cut -c 1-18)
-		num_upgrades=$(grep -w -c "upgraded $1 " /var/log/pacman.log)
-		recent_actions=$(grep -w -E "(upgraded|removed|installed) $1 " /var/log/pacman.log | tail -n 5)
+		first_install=$(grep --text -w "installed $1 " /var/log/pacman.log | cut -c 1-18)
+		num_upgrades=$(grep --text -w -c "upgraded $1 " /var/log/pacman.log)
+		recent_actions=$(grep --text -w -E "(upgraded|removed|installed) $1 " /var/log/pacman.log | tail -n 5)
 
 		# Color Definition
 		ORANGE='\033[0;33m'

@@ -159,6 +159,13 @@
 
     ### Icons ###
 
+    # For no journalctl errors with no icons installed:
+    # `systemctl --user edit dunst`
+    # Add:
+    # [Service]
+    # StandardError=null
+    #
+    # And the spam disappears :D
     # Align icons left/right/off
     icon_position = left
 

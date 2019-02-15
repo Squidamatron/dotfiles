@@ -1,4 +1,0 @@
-#!/bin/bash
-
-scrot -e "mv $f $HOME/Pictures/screenshots 2>/dev/null"
-dunstify -a "scrot" "Screenshot Taken"
