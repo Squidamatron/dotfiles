@@ -17,7 +17,7 @@ music (){
 		#convert -resize 128x128 "$artpath" /tmp/cover.png
 
 		#dunstify -a "MPD" -r 1337 -i "/tmp/cover.png" "$toprint"
-		dunstify -a "MPD" -r 1337 -i "$artpath" "$toprint"
+		dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint"
 	done
 }
 
@@ -38,13 +38,13 @@ np () {
 	#convert -resize 128x128 "$artpath" /tmp/cover.png
 
 	#dunstify -a "MPD" -r 1337 -i "/tmp/cover.png" "$toprint"
-	dunstify -a "MPD" -r 1337 -i "$artpath" "$toprint$showtime"
+	dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint$showtime"
 }
 
 vol () {
 	mpc volume "$1"
 	vol=$(mpc | tail -n1 | awk '{print $2}')
-	dunstify -a "MPD" -r 1337 "Music Volume: $vol"
+	dunstify -a "MPD" -r 1337 "" "Music Volume: $vol"
 }
 
 case $1 in

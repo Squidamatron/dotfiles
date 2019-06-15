@@ -295,6 +295,7 @@
 [MPD]
     appname = "MPD"
     timeout = 6
+    format = "%b"
 
 #[espeak]
 #    summary = "*"
