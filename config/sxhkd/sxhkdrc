@@ -18,10 +18,10 @@ super + shift + r
 
 # clipboard manager
 super + p
-	clipmenu -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
+	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
 
 super + shift + p
-	clipmenu -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
+	clipmenu --print -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
 
 # make sxhkd reload its configuration files:
 super + Escape

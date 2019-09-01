@@ -4,6 +4,12 @@
 : "${CM_DIR="${XDG_RUNTIME_DIR-"${TMPDIR-/tmp}"}"}"
 : "${CM_HISTLENGTH=8}"
 
+CM_PRINT=0
+if [[ $1 == --print ]]; then
+	CM_PRINT=1
+	shift
+fi
+
 major_version=5
 
 shopt -s nullglob
@@ -45,7 +51,8 @@ if [[ "$CM_LAUNCHER" == rofi-script ]]; then
         # shellcheck disable=SC2124
         chosen_line="${@: -1}"
     fi
-elif [[ ! -t 1 ]]; then
+#elif [[ ! -t 1 ]]; then
+elif (( CM_PRINT )); then
     list_clips | "$CM_LAUNCHER" -l "${CM_HISTLENGTH}" "$@"
     exit
 else
