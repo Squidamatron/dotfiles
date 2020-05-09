@@ -25,6 +25,9 @@ user_pref("media.peerconnection.enabled", false);
 // Show Punycode
 user_pref("network.IDN_show_punycode", true);
 
+//effectively rel=noopener on every `<a>` tag
+user_pref("dom.targetBlankNoOpener.enabled", true);
+
 // Dotted outline box on links/selections -- 0 disables
 //user_pref("browser.display.focus_ring_width", 0);
 

@@ -26,4 +26,4 @@ done &
 
 musicnotify music &
 
-compton --config ~/.config/compton/config -b
+picom --config ~/.config/picom/config -b

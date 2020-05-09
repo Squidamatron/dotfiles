@@ -1,19 +1,17 @@
 # General
 backend = "glx";
-vsync = "opengl-swc";
+vsync = true;
+refresh-rate = 144;
 glx-no-stencil = true;
 glx-copy-from-front = false;
 glx-swap-method = 1;
+glx-no-rebind-pixmap = true;
 detect-rounded-corners = true;
-xrender-sync = true;
 xrender-sync-fence = true;
-sw-opti = 1;
 
 # Shadow
 shadow = true;
-no-dnd-shadow = true;
-no-dock-shadow = true;
-shadow-radius = 7;
+shadow-radius = 8;
 shadow-offset-x = -7;
 shadow-offset-y = -7;
 shadow-opacity = 0.4;
@@ -28,9 +26,7 @@ shadow-exclude = [
 ];
 
 # Opacity
-menu-opacity = 1.0;
 inactive-opacity-override = false;
-alpha-step = 0.06;
 detect-client-opacity = true;
 
 # Fading
@@ -44,9 +40,11 @@ wintypes:
 {
   tooltip = { fade = true; shadow = false; };
   menu = { shadow = false; };
-  dropdown_menu = { shadow = false; };
-  popup_menu =  { shadow = false; };
+  dropdown_menu = { shadow = false; opacity = 1.0; };
+  popup_menu =  { shadow = false; opacity = 1.0; };
   utility =  { shadow = false; };
+  dnd = { shadow = false; };
+  dock = { shadow = false; };
 };
 
 # vim:ft=conf:

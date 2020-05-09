@@ -1,4 +1,4 @@
-userjsDir=$(shell cat ~/.mozilla/firefox/profiles.ini | awk -F\= '/Path/ { print $$2 }')
+userjsDir=$(shell cat ~/.mozilla/firefox/profiles.ini | awk -F\= '/Path/ { print $2 }')
 
 install: install-vim \
 	 install-bash \
@@ -9,7 +9,7 @@ install: install-vim \
 	 install-ncmpcpp \
 	 install-mplayer \
 	 install-mpd \
-	 install-compton \
+	 install-picom \
 	 install-polybar \
 	 install-bspwm \
 	 install-sxhkd \
@@ -51,9 +51,9 @@ install-mpd:
 	mkdir -p ~/.config/mpd
 	ln -s `pwd`/config/mpd/mpd.conf ~/.config/mpd/mpd.conf
 
-install-compton:
-	mkdir -p ~/.config/compton
-	ln -s `pwd`/config/compton/config ~/.config/compton/config
+install-picom:
+	mkdir -p ~/.config/picom
+	ln -s `pwd`/config/picom/config ~/.config/picom/config
 
 install-polybar:
 	mkdir -p ~/.config/polybar
