@@ -1,0 +1,4 @@
+#!/bin/bash
+# Show the time :D
+
+dunstify -a "showtime" -r 1 "$(date +'%a %d %b, %I:%M %p')"

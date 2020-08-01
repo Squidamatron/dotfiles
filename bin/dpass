@@ -1,0 +1,7 @@
+#!/bin/sh
+# dmenu-sudo for $SUDO_ASKPASS
+
+caller="$(ps -o comm= -p $(ps -o ppid= -p $$))"
+prompt="${1:-[$caller]}"
+
+dmenu -p "$prompt" -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#1D1F21" -sb "#1D1F21" -sf "#C5C8C6" <&-

@@ -1,10 +1,27 @@
 #!/bin/bash
 
+message=""
 windows="$(bspc query -D -d .occupied --names)"
 
 if [ -z "$windows" ]
 then
-	dunstify -r 1 "No Open Windows"
+	message="No Open Windows"
 else
-	dunstify -r 1 "Open:" "$windows"
+	for desktop in $(bspc query -D -d .occupied)
+	do
+		message+="<b>$(echo -e "$(bspc query -D -d "$desktop" --names)\r")</b>"
+		#echo "∟$(xtitle $(bspc query -N -d "$desktop" | grep -f <(bspc query -N -n .leaf)))"
+
+		for window in $(bspc query -N -d "$desktop" | grep -f <(bspc query -N -n .leaf))
+		do
+			if [[ "$(xtitle "$window")" == *"- Mozilla Firefox" ]]; then
+				message+=$(echo -e " - Firefox\r")
+			else
+				message+=$(echo -e " - $(xtitle "$window")\r")
+			fi
+			#message+=$(echo -e " ∟ $(xtitle "$window")\r")
+		done
+	done
 fi
+
+dunstify -a "openwin" -r 1 "" "$message"

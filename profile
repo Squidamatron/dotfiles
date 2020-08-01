@@ -1,10 +1,16 @@
 export EDITOR=vim
 export BROWSER=firefox
-export SDL_AUDIODRIVER=alsa
+#export SDL_AUDIODRIVER=alsa
 export PATH="${PATH}:/opt/android-sdk/extras/:$HOME/.bin/"
 export MOZ_USE_OMTC=1
 export AURDEST=/tmp/pacaur-cache
 export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
+export SUDO_ASKPASS="$HOME/.bin/dpass"
+
+# fcitx - language input
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 # Clipmenu
 # Add these to a file in ~/.config/environment.d for systemd --user session

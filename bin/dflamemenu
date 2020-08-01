@@ -1,0 +1,9 @@
+#!/bin/bash
+# flameshot options through dmenu
+
+choice=$(echo -e "Selection\nDesktop" | dmenu -l 10 -i -p "Power:" -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666")
+
+case $choice in
+	Selection) flameshot gui;;
+	Desktop) flameshot full;;
+esac

@@ -13,16 +13,6 @@ super + shift + Return
 super + r
 	dmenu_run -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
 
-super + shift + r
-	rofi -show run -terminal urxvtc -lines 7 -eh 3 -width 100 -padding 200 -opacity 80 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
-
-# clipboard manager
-super + p
-	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
-
-super + shift + p
-	clipmenu --print -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
-
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -137,8 +127,24 @@ super + {Left,Down,Up,Right}
 # Custom Binds
 #
 
+# Power Management
+super + alt + p
+	dpowermenu
+
+super + shift + p
+	defimenu
+
+# clipboard manager
+super + v
+	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
+
+super + shift + v
+	clipmenu --print -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
+
+# Music
+
 super + alt + m
-	musicnotify np
+	musicnotifyd np
 
 XF86Tools
 	urxvtc -geometry 130x44 -e ncmpcpp
@@ -153,10 +159,12 @@ XF86AudioPrev
 	mpc prev
 
 XF86AudioLowerVolume
-	musicnotify volad -5
+	musicnotifyd volad -5
 
 XF86AudioRaiseVolume
-	musicnotify volad +5
+	musicnotifyd volad +5
+
+# Misc -- I don't think these are bound anymore >.>
 
 XF86Explorer
 	thunar
@@ -180,13 +188,17 @@ alt + Print
 	scrotutl -w
 
 # Lock the screen
-super + shift + ctrl + l
-	i3lock-fancy
+#super + shift + ctrl + l
+#	i3lock-fancy
 
 # Date & Time notification
 super + alt + t
-	dunstify -r 1 "$(date +'%a %d %b, %I %M %p')"
+	timenotify
 
 # List Desktops with open programs
 super + alt + o
 	openwin
+
+# Change Input Methods EN<->JA
+alt + space
+	changeim

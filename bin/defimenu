@@ -1,0 +1,21 @@
+#!/bin/bash
+# Manage the EFI BootNext value
+
+#bootCurrent="$(efibootmgr | grep "BootCurrent" | cut -d" " -f2)"
+bootEntry="$(efibootmgr | grep -E "Boot[0-9]{4}" | grep -Ev "(Hard Drive|CD\/DVD Drive)" | cut -d" " -f2-4)"
+
+choice="$(echo -e "$bootEntry" | dmenu -l 10 -i -p "Boot Next:" -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666")"
+
+if [ ! -z "$choice" ]
+then
+	sudo -A efibootmgr -n "$(efibootmgr | grep -e "$choice$" | cut -c5-8)"
+
+	if [ $? -eq 0 ]; then
+		dunstify -a "efibootmgr" -r 1 "BootNext: $choice"
+	else
+		dunstify -a "efibootmgr" -r 1 -u critical "OH NO" "Something bad happened, I don't know what, but you need to check it out manually"
+	fi
+fi
+#else
+#	It's fucking nothing (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧"
+#fi

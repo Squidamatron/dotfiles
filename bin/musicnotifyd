@@ -1,0 +1,87 @@
+#!/bin/bash
+# Notifications on MPD status and volume change
+#
+# Extra shenanigans
+#volume=$(grep "^volume: " <<< "$getInfo" 2>/dev/null | sed "s/volume: //")
+#echo "$volume"
+#(( adjusted=$volume+5 ))
+#echo "adjusted: $adjusted"
+#
+# Extra netcat shenanigans "openbsd-netcat" or ncat from "nmap" package
+# Same thing as exec, just with netcat - might be usefule for "idle"
+#getInfo=$(echo -e "currentsong\nstatus\nclose" | nc localhost 6600)
+
+updateCount=0
+
+function control {
+	getInfo=$(exec 5<> /dev/tcp/localhost/6600; echo -e "currentsong\nstatus\nclose" >&5; cat <&5)
+
+	songTitle=$(grep "^Title: " <<< "$getInfo" 2>/dev/null | sed "s/Title: //")
+	songArtist=$(grep "^Artist: " <<< "$getInfo" 2>/dev/null | sed "s/Artist: //")
+	songAlbum=$(grep "^Album: " <<< "$getInfo" 2>/dev/null | sed "s/Album: //")
+
+	_songTime=$(grep "^Time: " <<< "$getInfo" 2>/dev/null | sed "s/Time: //")
+	(( _mm=$_songTime / 60 ))
+	[[ ${#_mm} -eq 1 ]] && _mm="$_mm"
+	(( _ss=$_songTime - $_mm * 60 ))
+	[[ ${#_ss} -eq 1 ]] && _ss="0$_ss"
+	songLength="$_mm:$_ss"
+
+	musicpath=$(awk -F'"' '/music_directory/ { print $2 }' "$HOME"/.config/mpd/mpd.conf)
+	artpath="$musicpath/$(dirname "$(grep "file: " <<< "$getInfo" 2>/dev/null | sed "s/file: //")")/cover.jpg"
+
+	toprint="<b>Title:</b>\t$songTitle\n<b>Artist:</b>\t$songArtist\n<b>Album:</b>\t$songAlbum"
+
+	if [[ "$1" = "music" ]]; then
+		toprint+="\n<b>Time:</b>\t$songLength"
+	elif [[ "$1" = "np" ]]; then
+		_nowTime=$(grep "^elapsed: " <<< "$getInfo" 2>/dev/null | sed "s/elapsed: //" | cut -f 1 -d .)
+		(( _mm=$_nowTime / 60 ))
+		[[ ${#_mm} -eq 1 ]] && _mm="$_mm"
+		(( _ss=$_nowTime - $_mm * 60 ))
+		[[ ${#_ss} -eq 1 ]] && _ss="0$_ss"
+		songCurrentTime="$_mm:$_ss"
+
+		toprint+="\n<b>Time:</b>\t$songCurrentTime/$songLength"
+	elif [[ "$1" = "vol" ]]; then
+		# vol
+		echo "vol"
+	fi
+
+	dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint"
+}
+
+function music {
+	while true; do
+		idlecheck=$(mpc idle player update)
+		
+		if [[ "$idlecheck" = "player" ]]; then
+			control "music"
+		elif [[ "$idlecheck" = "update" ]]; then
+			if [ $updateCount -eq 0 ]; then
+				dunstify -a "MPD" -r 1337 "" "MPD Update Started"
+				updateCount=1
+			elif [ $updateCount -eq 1 ]; then
+				dunstify -a "MPD" -r 1337 "" "MPD Update Finished"
+				updateCount=0
+			fi
+		fi
+	done
+}
+
+function np {
+	control "np"
+}
+
+function vol {
+	mpc volume "$1"
+	vol=$(mpc | tail -n1 | awk '{print $2}')
+	dunstify -a "MPD" -r 1337 "" "Music Volume: $vol"
+}
+
+case $1 in
+	music)	music	;;
+	np)	np	;;
+	volad)	vol "$2"	;;
+	*)	exit 1	;;
+esac
