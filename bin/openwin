@@ -14,7 +14,7 @@ else
 
 		for window in $(bspc query -N -d "$desktop" | grep -f <(bspc query -N -n .leaf))
 		do
-			if [[ "$(xtitle "$window")" == *"- Mozilla Firefox" ]]; then
+			if [[ "$(xtitle "$window")" == *"— Mozilla Firefox" ]]; then
 				message+=$(echo -e " - Firefox\r")
 			else
 				message+=$(echo -e " - $(xtitle "$window")\r")
