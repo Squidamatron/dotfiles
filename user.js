@@ -34,6 +34,7 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 // Smooth Scroll settings
 user_pref("general.smoothScroll.currentVelocityWeighting", "0");
 user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 200);
 user_pref("general.smoothScroll.stopDecelerationWeighting", "0.82");
 user_pref("general.smoothScroll.other", false);
 // Default this on Linux...?

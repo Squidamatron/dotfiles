@@ -1,0 +1,14 @@
+#!/bin/bash
+# Helper "daemon" to notify on IME change
+#
+# Required:
+# - glib2
+#
+
+#fcitx_address=$(fcitx-remote -a)
+#while [ -z "$fcitx_address" ]; do
+#	fcitx_address=$(fcitx-remote -a)
+#done
+#
+#gdbus monitor -a "$fcitx_address" --dest org.fcitx.Fcitx --object-path /inputmethod | grep --line-buffered / | fcitxnotifyt
+gdbus monitor --session --dest org.fcitx.Fcitx --object-path /inputmethod | grep --line-buffered / | fcitxnotify notifyd

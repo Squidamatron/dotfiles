@@ -1,0 +1,49 @@
+#!/bin/bash
+# Notify on Toggle
+# I only expect to be using English and Japanese keyboards sooOOoooOOo....
+# Reference fcitxnotifyd
+#
+# Required:
+# - glib2 -- gdbus is easier than dbus-send
+#
+
+# Helper values
+value="'([^']++)'"
+pattern="${value}, ${value}, ${value}" 
+imlist=$(gdbus call --session --dest org.fcitx.Fcitx \
+	--object-path /inputmethod \
+	--method org.freedesktop.DBus.Properties.Get org.fcitx.Fcitx.InputMethod IMList |
+	grep -Po "\($pattern, true\)" |
+	sed -Ee "s/\($pattern.+\)/\\1, \\2, \\3/g")
+
+# Shows change of Input Method in notification
+show_current() {
+	current=$(gdbus call --session --dest org.fcitx.Fcitx \
+		--object-path /inputmethod \
+		--method org.fcitx.Fcitx.InputMethod.GetCurrentIM | 
+		grep -Po "$value" | sed -Ee "s/$value/\\1/g")
+
+	result=$(sed -Ee 's/^Keyboard - //g' <<< "$imlist" | grep "$current" | cut -d',' -f1)
+
+	if [[ "$result" = "Mozc" ]]; then
+		result="🇯🇵 Japanese (JA)"
+	elif [[ "$result" = "English (US)" ]]; then
+		result="🇺🇸"" $result"
+	fi
+
+	dunstify -a "fcitx" -r 1338 "Keyboard:" "$result"
+}
+
+# Necessary loop started by fcitxnotifyd
+notifyd() {
+	while true; do
+		read -r unused
+		show_current
+	done
+}
+
+case $1 in 
+	show_current)	show_current;;
+	notifyd)	notifyd "$2";;
+	*)		exit 1;;
+esac

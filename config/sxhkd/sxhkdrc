@@ -139,7 +139,7 @@ super + v
 	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
 
 super + shift + v
-	clipmenu --print -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
+	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
 
 # Music
 
@@ -199,6 +199,6 @@ super + alt + t
 super + alt + o
 	openwin
 
-# Change Input Methods EN<->JA
-alt + space
-	changeim
+# Show Current Input Method EN<->JA
+super + alt + space
+	fcitxnotify show_current
