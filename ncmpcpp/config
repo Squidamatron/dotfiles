@@ -57,13 +57,13 @@ data_fetching_delay = "no"
 allow_for_physical_item_deletion = "no"
 
 ##### visualisation #####
-visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_in_stereo = "yes"
-visualizer_sync_interval = "30"
-#visualizer_type = "wave"
-visualizer_type = "spectrum"
-#visualizer_look = "+|"
+##visualizer_fifo_path = "/tmp/mpd.fifo"
+##visualizer_output_name = "my_fifo"
+##visualizer_in_stereo = "yes"
+##visualizer_sync_interval = "30"
+###visualizer_type = "wave"
+##visualizer_type = "spectrum"
+###visualizer_look = "+|"
 
 ##### colors definitions #####
 colors_enabled = "yes"

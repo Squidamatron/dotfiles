@@ -28,7 +28,7 @@ show_current() {
 	if [[ "$result" = "Mozc" ]]; then
 		result="🇯🇵 Japanese (JA)"
 	elif [[ "$result" = "English (US)" ]]; then
-		result="🇺🇸"" $result"
+		result="🇺🇸 $result"
 	fi
 
 	dunstify -a "fcitx" -r 1338 "Keyboard:" "$result"

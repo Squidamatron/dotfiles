@@ -122,6 +122,23 @@ function aura {
 	fi
 }
 
+function _dcBackwardsPathCompletion() {
+	# Note: must be used with complete -o nospace
+	# $1=cmd $2=cur $3=pre
+	local cwd="${2:-$PWD}"
+	local upd="${cwd%/*}"
+	if [[ $cwd == '/' ]]; then
+		return
+	elif [[ $upd == '' ]]; then
+		COMPREPLY=('/')
+	else
+		COMPREPLY=("$upd")
+	fi
+}
+
+function dc() { cd ${1:-..}; }
+complete -o nospace -F _dcBackwardsPathCompletion dc
+
 # autojump addition
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
