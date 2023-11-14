@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ "$1" == "toggle" ]]; then
+	gdbus call --session --dest org.fcitx.Fcitx \
+		--object-path /inputmethod \
+		--method org.fcitx.Fcitx.InputMethod.ToggleIM
+	#echo "toggln" | systemd-cat -t "fcitxtest"
+fi
+
+current=$(gdbus call --session --dest org.fcitx.Fcitx \
+	--object-path /inputmethod \
+	--method org.fcitx.Fcitx.InputMethod.GetCurrentIM |
+	grep -Po "'([^']++)'" | sed -Ee "s/'([^']++)'/\\1/g")
+
+if [[ "$current" = "mozc" ]]; then
+	current="🇯🇵 Japanese (JA)"
+elif [[ "$current" = "fcitx-keyboard-us" ]]; then
+	current="🇺🇸 English (US)"
+fi
+
+dunstify -a "fcitx" -h string:x-dunst-stack-tag:fcitx "Keyboard:" "$current"

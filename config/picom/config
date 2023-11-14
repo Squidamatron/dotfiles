@@ -1,7 +1,7 @@
 # General
 backend = "glx";
 vsync = true;
-refresh-rate = 144;
+#refresh-rate = 144;
 glx-no-stencil = true;
 glx-copy-from-front = false;
 glx-swap-method = 1;
@@ -34,6 +34,10 @@ fading = true;
 fade-delta = 3;
 fade-in-step = 0.03;
 fade-out-step = 0.03;
+fade-exclude = [
+  "name= 'Screenshot'",
+  "class_g = 'slop'"
+];
 
 # Window type settings
 wintypes:

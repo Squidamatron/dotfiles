@@ -12,7 +12,7 @@
 #export SDL_AUDIODRIVER=alsa
 #export PATH=$PATH:/opt/android-sdk/extras/:$HOME/.bin/
 #export MOZ_USE_OMTC=1
-#export AURDEST=/tmp/pacaur-cache
+#export AURDEST=/tmp/aur-cache
 #export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
 
 # git-prompt variables
@@ -21,10 +21,19 @@ export GIT_PS1_SHOWDIRTYSTATE="auto"
 export GIT_PS1_SHOWSTASHSTATE="auto"
 export GIT_PS1_SHOWUNTRACKEDFILES="auto"
 
+source /usr/share/fzf/key-bindings.bash
 source ~/.git-prompt.sh
 
 PS1='\[\e[1;37m\]┌─[\e[1;37m\]\u\[\e[1;37m\]][\[\e[1;34m\]\h\[\e[1;37m\]][\[\e[1;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[1;37m\]]\n\[\e[1;37m\]└── \[\e[0m\]'
 PS2="└── "
+
+# base16 colorschmes
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+		eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+source ~/.config/base16-fzf/bash/base16-default-dark.config
 
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
@@ -127,20 +136,23 @@ function _dcBackwardsPathCompletion() {
 	# $1=cmd $2=cur $3=pre
 	local cwd="${2:-$PWD}"
 	local upd="${cwd%/*}"
-	if [[ $cwd == '/' ]]; then
+	if [[ "$cwd" == '/' ]]; then
 		return
-	elif [[ $upd == '' ]]; then
-		COMPREPLY=('/')
+	#elif [[ "$upd" == '' ]]; then
+	#	COMPREPLY=('/')
 	else
-		COMPREPLY=("$upd")
+		COMPREPLY=("${upd:-/}")
 	fi
 }
 
-function dc() { cd ${1:-..}; }
+function dc() { cd "${1:-..}"; }
 complete -o nospace -F _dcBackwardsPathCompletion dc
 
 # autojump addition
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+#source /etc/profile.d/autojump.bash
+# zoxide (autojump replacement
+eval "$(zoxide init bash --cmd j)"
 
 #if [ -f "$HOME/.bash_ps1" ]; then
 

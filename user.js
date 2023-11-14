@@ -59,3 +59,5 @@ user_pref("media.fragmented-mp4.gmp.enabled", true);
 // - Doesn't work properly, must delete dictionaries in /usr/share/hunspell
 //user_pref("spellchecker.dictionary", "en-US");
 
+// Green HTTPS Lock
+user_pref("security.secure_connection_icon_color_gray", false);

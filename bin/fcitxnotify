@@ -18,18 +18,36 @@ imlist=$(gdbus call --session --dest org.fcitx.Fcitx \
 
 # Shows change of Input Method in notification
 show_current() {
-	current=$(gdbus call --session --dest org.fcitx.Fcitx \
-		--object-path /inputmethod \
-		--method org.fcitx.Fcitx.InputMethod.GetCurrentIM | 
-		grep -Po "$value" | sed -Ee "s/$value/\\1/g")
+	#current=$(gdbus call --session --dest org.fcitx.Fcitx \
+	#	--object-path /inputmethod \
+	#	--method org.fcitx.Fcitx.InputMethod.GetCurrentIM | 
+	#	grep -Po "$value" | sed -Ee "s/$value/\\1/g")
 
-	result=$(sed -Ee 's/^Keyboard - //g' <<< "$imlist" | grep "$current" | cut -d',' -f1)
+	current=$(busctl -j --user call org.fcitx.Fcitx \
+		/inputmethod \
+		org.fcitx.Fcitx.InputMethod GetCurrentIM | jq -r '.data[0]')
 
-	if [[ "$result" = "Mozc" ]]; then
-		result="🇯🇵 Japanese (JA)"
-	elif [[ "$result" = "English (US)" ]]; then
-		result="🇺🇸 $result"
-	fi
+	#result=$(sed -Ee 's/^Keyboard - //g' <<< "$imlist" | grep "$current" | cut -d',' -f1)
+
+	#if [[ "$current" = "mozc" ]]; then
+	#	result="🇯🇵 Japanese (JA)"
+	#elif [[ "$current" = "hangul" ]]; then
+	#	result="🇰🇷 Korean (KO)"
+	#elif [[ "$current" = "fcitx-keyboard-us" ]]; then
+	#	result="🇺🇸 English (US)"
+	#fi
+
+	case $current in
+		"mozc")
+			result="🇯🇵 Japanese (JA)"
+			;;
+		"hangul")
+			result="🇰🇷 Korean (KO)"
+			;;
+		*)
+			result="🇺🇸 English (US)"
+			;;
+	esac
 
 	dunstify -a "fcitx" -r 1338 "Keyboard:" "$result"
 }

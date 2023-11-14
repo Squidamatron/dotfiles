@@ -17,22 +17,30 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plun 'https://github.com/tpope/vim-surround'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-rails'
+"Plug 'mattn/emmet-vim'
+"Plug 'tpope/vim-rails'
 "Plun 'Bogdanp/browser-connect.vim'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'rpdelaney/vim-sourcecfg'
 Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-fugitive'
 Plug 'withgod/vim-sourcepawn'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-set background=dark
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
+
+"set background=dark
+"let g:hybrid_custom_term_colors = 1
+"colorscheme hybrid
+colorscheme base16-default-dark
 
 " Color current line number
 hi clear CursorLine
@@ -53,10 +61,10 @@ filetype plugin indent on
 " vim-airline config
 set laststatus=2
 let g:airline_powerline_fonts = 1
-"let g:airline_theme='powerlineish'
-"let g:airline_theme='hybrid'
-let g:AirlineTheme='hybrid'
-let g:airline#extensions#syntastic#enabled = 1
+"let g:AirlineTheme='hybrid'
+let g:AirlineTheme = 'base16_default'
+let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#branch#enabled = 1
 

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+choice=$(echo -e  "Selection\nWindow\nDesktop\nQR" | dmenu_c -l 10 -i -p "Screenshot:")
+
+case "$choice" in
+	Window)
+		tmp_file=$(mktemp -t maimscript-XXXXXX)
+		maim -i "$(xdotool getactivewindow)" > "$tmp_file"
+		xclip -selection c -filter -t image/png "$tmp_file"
+		dunstify -a "maim" -i "$tmp_file" "Maim" "Screenshot taken"
+		rm "$tmp_file"
+		;;
+	Selection)
+		tmp_file=$(mktemp -t maimscript-XXXXXX)
+		maim --noopengl --capturebackground --select --hidecursor --color=0.1,0.1,0.1,0.6 --highlight > "$tmp_file"
+		xclip -selection c -filter -t image/png "$tmp_file"
+		dunstify -a "maim" -i "$tmp_file" "Maim" "Screenshot taken"
+		rm "$tmp_file"
+		;;
+	Desktop)
+		tmp_file=$(mktemp -t maimscript-XXXXXX)
+		maim "$tmp_file"
+		xclip -selection c -filter -t image/png "$tmp_file"
+		dunstify -a "maim" -i "$tmp_file" "Maim" "Screenshot taken"
+		rm "$tmp_file"
+		;;
+	QR)
+		tmp_file=$(mktemp -t maimscript-XXXXXX)
+		maim --noopengl --capturebackground --select --hidecursor --color=0.1,0.1,0.1,0.6 --highlight > "$tmp_file"
+		scanresult=$(zbarimg --quiet --raw "$tmp_file" | tr -d '\n')
+
+		if [ -z "$scanresult" ]; then
+			dunstify -a "maim" "Maim" "No scan data found"
+		else
+			echo "$scanresult" | xclip -selection c -filter
+			dunstify -a "maim" -i "$tmp_file" "Maim" "$scanresult\n(copied to clipboard)"
+		fi
+
+		rm "$tmp_file"
+		;;
+	*) false ;;
+esac

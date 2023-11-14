@@ -4,14 +4,14 @@
 
 # terminal emulator
 super + Return
-	urxvtc
+	alacritty
 
 super + shift + Return
-	urxvtc -e tmux
+	alacritty -e tmux
 
 # program launcher
 super + r
-	dmenu_run -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
+	dmenu_c_run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -66,8 +66,8 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node
-#super + {_,shift + }c
-#	bspc node -f {next,prev}
+super + {_,shift + }u
+	bspc node -f {next,prev}
 
 # focus the next/previous desktop
 super + bracket{left,right}
@@ -136,10 +136,10 @@ super + shift + p
 
 # clipboard manager
 super + v
-	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666"
+	clipmenu_c
 
 super + shift + v
-	clipmenu -i -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666" | clipdel -d
+	clipmenu_c | clipdel -d
 
 # Music
 
@@ -147,7 +147,7 @@ super + alt + m
 	musicnotifyd np
 
 XF86Tools
-	urxvtc -geometry 130x44 -e ncmpcpp
+	st -e ncmpcpp
 
 XF86AudioPlay
 	mpc toggle
@@ -173,27 +173,19 @@ XF86Calculator
 	speedcrunch
 
 XF86Mail
-	urxvtc -geometry 130x44 -e ranger
+	st -e ranger
 
-# Screenshot - Fullscreen
-Print
-	scrotutl -f
-
-# Screenshot - Selection
-ctrl + Print
-	scrotutl -s
-
-# Screenshot - Active Window
-alt + Print
-	scrotutl -w
+# Screenshot
+super + shift + s
+	dmaim
 
 # Lock the screen
 #super + shift + ctrl + l
 #	i3lock-fancy
 
 # Date & Time notification
-super + alt + t
-	timenotify
+super + {alt,ctrl} + t
+	timenotify {time,date}
 
 # List Desktops with open programs
 super + alt + o
@@ -202,3 +194,30 @@ super + alt + o
 # Show Current Input Method EN<->JA
 super + alt + space
 	fcitxnotify show_current
+
+#shift + space
+#	fcitxtest toggle
+#fcitx5notify current
+
+#super + space
+#	sleep 0.2; fcitxtest toggle
+
+#
+# Dunst - they took away the built in shortcuts!
+#
+
+# Close / Close-All notifications
+alt + space
+	dunstctl close
+
+# Close-All
+ctrl + shift + space
+	dunstctl close-all
+
+# History
+ctrl + p
+	dunstctl history-pop
+
+# Context menu
+ctrl + shift + period
+	dunstctl context

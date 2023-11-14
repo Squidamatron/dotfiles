@@ -1,4 +1,13 @@
 #!/bin/bash
 # Show the time :D
 
-dunstify -a "showtime" -r 1 "$(date +'%a %d %b, %I:%M %p')"
+source ${XDG_CONFIG_HOME:-$HOME/.config}/base16-xdg/base16-default-dark.sh
+
+DAY=$(date '+%e')
+DoW=$(date '+%a' | cut -c 1-2)
+
+case "$1" in
+	time)	dunstify -a "showtime" -r 1 "$(date +'%a %d %b, %I:%M %p')"	;;
+	date)	dunstify -a "showtime" -r 1 "$(cal | head -n1)" "$(cal | tail -n7 | sed -z "s|$DAY\b|<b><span color=\"$color05\">$DAY</span></b>|g" | sed -z "s|$DoW|<b><span color=\"$color05\">$DoW</span></b>|g")"	;;
+	*)	exit 1	;;
+esac

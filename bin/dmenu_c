@@ -1,0 +1,3 @@
+#!/bin/sh
+source ${XDG_CONFIG_HOME:-$HOME/.config}/base16-xdg/base16-default-dark.sh
+exec dmenu -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb $color_background -nf $color_foreground -sb $color_background -sf $color01 "$@"

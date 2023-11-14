@@ -34,6 +34,7 @@ function control {
 
 	if [[ "$1" = "music" ]]; then
 		toprint+="\n<b>Time:</b>\t$songLength"
+		dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint"
 	elif [[ "$1" = "np" ]]; then
 		_nowTime=$(grep "^elapsed: " <<< "$getInfo" 2>/dev/null | sed "s/elapsed: //" | cut -f 1 -d .)
 		(( _mm=$_nowTime / 60 ))
@@ -43,12 +44,14 @@ function control {
 		songCurrentTime="$_mm:$_ss"
 
 		toprint+="\n<b>Time:</b>\t$songCurrentTime/$songLength"
+
+		dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint" -h int:value:"$(echo "$_nowTime / $_songTime * 100" | bc -l)"
 	elif [[ "$1" = "vol" ]]; then
 		# vol
 		echo "vol"
 	fi
 
-	dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint"
+	#dunstify -a "MPD" -r 1337 -i "$artpath" "" "$toprint"
 }
 
 function music {

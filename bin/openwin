@@ -1,25 +1,37 @@
 #!/bin/bash
 
 message=""
-windows="$(bspc query -D -d .occupied --names)"
+desktops="$(bspc query -D)"
+occupied="$(bspc query -D -d .occupied)"
+focused="$(bspc query -D -d .focused)"
 
-if [ -z "$windows" ]
+if [ -z "$occupied" ]
 then
-	message="No Open Windows"
+	message+="<b>$(echo -e "$(bspc query -D -d .focused --names) &lt;--\r")</b>"
+	message+=" - No Open Windows"
 else
-	for desktop in $(bspc query -D -d .occupied)
+	for desktop in $desktops
 	do
-		message+="<b>$(echo -e "$(bspc query -D -d "$desktop" --names)\r")</b>"
-		#echo "∟$(xtitle $(bspc query -N -d "$desktop" | grep -f <(bspc query -N -n .leaf)))"
+		if [[ "$desktop" == "$focused" && "$occupied" != *"$desktop"* ]]; then
+			message+="<b>$(echo -e "$(bspc query -D -d "$desktop" --names) &lt;--\r")</b>"
+			message+="$(echo -e " - ▒▒▒▒▒▒▒\r")"
+		elif [[ "$occupied" != *"$desktop"* ]]; then
+			message+=""
+		elif [[ "$desktop" == "$focused" ]]; then
+			message+="<b>$(echo -e "$(bspc query -D -d "$desktop" --names) &lt;--\r")</b>"
+		else
+			message+="<b>$(echo -e "$(bspc query -D -d "$desktop" --names)\r")</b>"
+		fi
 
 		for window in $(bspc query -N -d "$desktop" | grep -f <(bspc query -N -n .leaf))
 		do
 			if [[ "$(xtitle "$window")" == *"— Mozilla Firefox" ]]; then
 				message+=$(echo -e " - Firefox\r")
+			elif [[ "$(xtitle "$window")" == *"— Mozilla Firefox Private Browsing" ]]; then
+				message+=$(echo -e " - Firefox 🥸\r")
 			else
 				message+=$(echo -e " - $(xtitle "$window")\r")
 			fi
-			#message+=$(echo -e " ∟ $(xtitle "$window")\r")
 		done
 	done
 fi

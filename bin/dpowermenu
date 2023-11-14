@@ -7,7 +7,7 @@ Lock
 Suspend
 Logout"
 
-choice=$(echo -e "$actions" | dmenu -l 10 -i -p "Power:" -fn "xos4 Terminus:medium:pixelsize=12:style=regular" -nb "#1D1F21" -nf "#C5C8C6" -sb "#1D1F21" -sf "#CC6666")
+choice=$(echo -e "$actions" | dmenu_c -l 10 -i -p "Power:")
 
 case $choice in
 	Reboot) systemctl reboot;;

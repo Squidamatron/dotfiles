@@ -1,0 +1,25 @@
+#!/bin/bash
+# TODO Remove functions! Makes it far too complicated
+# TODO Finish figuring out the theme for fcitx5...copy fcitx4's?
+
+function manager {
+	if [[ "$1" = "toggle" ]]; then
+		gdbus call --session --dest org.fcitx.Fcitx5 --object-path /controller --method org.fcitx.Fcitx.Controller1.Toggle
+	fi
+
+	result=$(gdbus call --session --dest org.fcitx.Fcitx5 --object-path /controller --method org.fcitx.Fcitx.Controller1.CurrentInputMethod)
+
+	if [[ "$result" = "Mozc" ]]; then
+		result="🇯🇵 Japanese (JA)"
+	elif [[ "$result" = "English (US)" ]]; then
+		result="🇺🇸 $result"
+	fi
+
+	dunstify -a "fcitx" -r 1338 "Keyboard:" "$result"
+}
+
+case $1 in
+	current)	manager ;;
+	toggle)		manager "toggle" ;;
+	*)		exit 1 ;;
+esac
