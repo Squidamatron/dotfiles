@@ -22,7 +22,7 @@ export GIT_PS1_SHOWSTASHSTATE="auto"
 export GIT_PS1_SHOWUNTRACKEDFILES="auto"
 
 source /usr/share/fzf/key-bindings.bash
-source ~/.git-prompt.sh
+source "$HOME/.git-prompt.sh"
 
 PS1='\[\e[1;37m\]┌─[\e[1;37m\]\u\[\e[1;37m\]][\[\e[1;34m\]\h\[\e[1;37m\]][\[\e[1;32m\]\W\[\e[1;33m\]$(__git_ps1 " (%s)")\[\e[1;37m\]]\n\[\e[1;37m\]└── \[\e[0m\]'
 PS2="└── "
@@ -33,7 +33,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 		eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-source ~/.config/base16-fzf/bash/base16-default-dark.config
+source "$HOME/.config/base16-fzf/bash/base16-default-dark.config"
 
 # because no colors is for looooserssss!
 alias ls='ls --color=auto'
@@ -138,14 +138,18 @@ function _dcBackwardsPathCompletion() {
 	local upd="${cwd%/*}"
 	if [[ "$cwd" == '/' ]]; then
 		return
-	#elif [[ "$upd" == '' ]]; then
-	#	COMPREPLY=('/')
+	elif [[ "$upd" == '' ]]; then
+		COMPREPLY=('/')
 	else
-		COMPREPLY=("${upd:-/}")
+		#upd_escape="${upd// /\\ }"
+		#upd_check="$(awk '1 { gsub(/\\+/,"\\"); print}' <<< "$upd_escape")"
+		#COMPREPLY=("$(printf '%s' "$upd_check")")
+		#upd_fix="${upd//\\/}"
+		COMPREPLY=("$(printf '%q\n' "${upd//\\/}")")
 	fi
 }
 
-function dc() { cd "${1:-..}"; }
+function dc() { cd "${1:-..}" || exit; }
 complete -o nospace -F _dcBackwardsPathCompletion dc
 
 # autojump addition

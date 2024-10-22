@@ -15,6 +15,7 @@ install: install-vim \
 	 install-sxhkd \
 	 install-dunst \
 	 install-mpv \
+	 install-alacritty \
 	 install-scripts
 
 install-vim:
@@ -74,6 +75,10 @@ install-dunst:
 
 install-mpv:
 	ln -s `pwd`/config/mpv ~/.config/mpv
+
+install-alacritty:
+	mkdir -p ~/.config/alacritty/
+	ln -s `pwd`/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 install-scripts:
 	ln -s `pwd`/bin ~/.bin
